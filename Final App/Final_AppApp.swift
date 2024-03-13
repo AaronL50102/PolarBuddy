@@ -21,9 +21,19 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Final_AppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+//    @StateObject var home: Home = Home()
+//    @StateObject var info: Info = Info()
+//    @StateObject var input: Input = Input()
+//    @StateObject var report: Report = Report()
+    
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+//                .environmentObject(home)
+//                .environmentObject(info)
+//                .environmentObject(report)
+//                .environmentObject(input)
         }
     }
 }
