@@ -76,7 +76,6 @@
 		01C09AA32B9B7B4F009EC83F /* Final App */ = {
 			isa = PBXGroup;
 			children = (
-				01C09AB52BA20772009EC83F /* Models */,
 				01C09AB42BA2075F009EC83F /* Views */,
 				01C09AB22B9B81D2009EC83F /* GoogleService-Info.plist */,
 				01C09AA42B9B7B4F009EC83F /* Final_AppApp.swift */,
@@ -104,13 +103,6 @@
 				01C09ABC2BA20A5B009EC83F /* HomeView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		01C09AB52BA20772009EC83F /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		46CB3A784E72C84D68D9E0F0 /* Pods */ = {
