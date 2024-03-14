@@ -14,7 +14,7 @@ enum ViewState {
 struct ContentView: View {
     
     @State var viewState: ViewState = .home
-    
+    @State var test: Int = 1 //Remove later
     var body: some View {
         VStack {
             Spacer()
