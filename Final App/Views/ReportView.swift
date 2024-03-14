@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReportView: View {
     
-//    @EnvironmentObject var report: Report
+
     
     var body: some View {
         Text("Report")
@@ -19,6 +19,6 @@ struct ReportView: View {
 struct ReportView_Previews: PreviewProvider {
     static var previews: some View {
         ReportView()
-//            .environmentObject(Report())
+
     }
 }

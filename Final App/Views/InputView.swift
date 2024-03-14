@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InputView: View {
     
-//    @EnvironmentObject var input: Input
+
     
     var body: some View {
         Text("Input")
@@ -19,6 +19,6 @@ struct InputView: View {
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
         InputView()
-//            .environmentObject(Input())
+
     }
 }

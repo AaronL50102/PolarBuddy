@@ -45,7 +45,7 @@ struct ContentView: View {
                     viewState = .info
                 } label: {
                     VStack{
-                        Image(systemName: "cart")
+                        Image(systemName: "pencil")
                         Text("Info")
                     }
                 }
@@ -54,7 +54,7 @@ struct ContentView: View {
                     viewState = .input
                 } label: {
                     VStack{
-                        Image(systemName: "person")
+                        Image(systemName: "camera")
                         Text("Input")
                     }
                 }
