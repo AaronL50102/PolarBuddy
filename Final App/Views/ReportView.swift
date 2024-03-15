@@ -15,7 +15,7 @@ struct ReportView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color.background)
+                .foregroundColor(Color.blueish)
                 .ignoresSafeArea()
             
             VStack {
