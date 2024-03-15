@@ -17,6 +17,7 @@
 		01C09ABB2BA208E0009EC83F /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C09ABA2BA208E0009EC83F /* InputView.swift */; };
 		01C09ABD2BA20A5B009EC83F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C09ABC2BA20A5B009EC83F /* HomeView.swift */; };
 		57DB5A30C7AC6FDBA476C517 /* Pods_Final_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7A1FD7EAA1CC48088821A17 /* Pods_Final_App.framework */; };
+		D3BF3C282BA4C5C800E2F641 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF3C272BA4C5C800E2F641 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		6CE9B896955E16C534F549AF /* Pods-Final App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final App.release.xcconfig"; path = "Target Support Files/Pods-Final App/Pods-Final App.release.xcconfig"; sourceTree = "<group>"; };
 		A7A1FD7EAA1CC48088821A17 /* Pods_Final_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D9FD2828FF9582D44613FB /* Pods-Final App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final App.debug.xcconfig"; path = "Target Support Files/Pods-Final App/Pods-Final App.debug.xcconfig"; sourceTree = "<group>"; };
+		D3BF3C272BA4C5C800E2F641 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		01C09AA32B9B7B4F009EC83F /* Final App */ = {
 			isa = PBXGroup;
 			children = (
+				D3BF3C262BA4C5B700E2F641 /* Models */,
 				01C09AB42BA2075F009EC83F /* Views */,
 				01C09AB22B9B81D2009EC83F /* GoogleService-Info.plist */,
 				01C09AA42B9B7B4F009EC83F /* Final_AppApp.swift */,
@@ -112,6 +115,14 @@
 				6CE9B896955E16C534F549AF /* Pods-Final App.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D3BF3C262BA4C5B700E2F641 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3BF3C272BA4C5C800E2F641 /* Constants.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 				01C09AB72BA207CB009EC83F /* InfoView.swift in Sources */,
 				01C09ABB2BA208E0009EC83F /* InputView.swift in Sources */,
 				01C09ABD2BA20A5B009EC83F /* HomeView.swift in Sources */,
+				D3BF3C282BA4C5C800E2F641 /* Constants.swift in Sources */,
 				01C09AB92BA208CA009EC83F /* ReportView.swift in Sources */,
 				01C09AA52B9B7B4F009EC83F /* Final_AppApp.swift in Sources */,
 			);

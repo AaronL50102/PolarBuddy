@@ -6,13 +6,24 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseStorage
+import FirebaseAuth
+import FirebaseDatabase
 
 struct ReportView: View {
-    
-
-    
     var body: some View {
-        Text("Report")
+        ZStack {
+            Rectangle()
+                .foregroundColor(Color.background)
+                .ignoresSafeArea()
+            
+            VStack {
+                Text("By recycling you have saved ... ")
+                    .font(Constants.largeFont)
+                    .multilineTextAlignment(.center)
+            }
+        }
     }
 }
 
