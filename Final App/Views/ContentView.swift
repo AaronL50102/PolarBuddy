@@ -64,7 +64,7 @@ struct ContentView: View {
                 } label: {
                     VStack{
                         Image(systemName: "person")
-                        Text("report")
+                        Text("Report")
                     }
                 }
 

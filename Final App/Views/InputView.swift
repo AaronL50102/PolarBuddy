@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct InputView: View {
-    
-
-    
     var body: some View {
         Text("Input")
     }
