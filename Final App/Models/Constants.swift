@@ -29,5 +29,3 @@ struct Constants {
     static let smallFont: Font = Font(UIFont(name: "HelveticaNeue-Thin", size: 20) ?? UIFont.systemFont(ofSize: 20))
 
 }
-
-

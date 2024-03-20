@@ -27,7 +27,7 @@ struct ReportView: View {
                     ZStack {
                         Ellipse()
                             .foregroundColor(Color.lightGreen)
-                            .frame(width: 300, height: 150, alignment: .leading)
+                            .frame(width: 350, height: 150, alignment: .leading)
                         VStack {
 //                            Image("co2")
 //                                .resizable()
@@ -42,14 +42,14 @@ struct ReportView: View {
                     ZStack {
                         Ellipse()
                             .foregroundColor(Color.lightGreen)
-                            .frame(width: 300, height: 150, alignment: .leading)
+                            .frame(width: 350, height: 150, alignment: .leading)
                         VStack {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
                             Text("20")
                                 .font(Constants.largeFancyFont)
-                            Text("Dollars")
+                            Text("US Dollars")
                                 .font(Constants.smallFancyFont)
                         }
                     }.padding()
@@ -57,7 +57,7 @@ struct ReportView: View {
                     ZStack {
                         Ellipse()
                             .foregroundColor(Color.lightGreen)
-                            .frame(width: 300, height: 159, alignment: .leading)
+                            .frame(width: 350, height: 159, alignment: .leading)
                         VStack {
 //                            Image("co2")
 //                                .resizable()
