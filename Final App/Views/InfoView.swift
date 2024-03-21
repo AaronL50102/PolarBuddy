@@ -7,56 +7,57 @@
 
 import SwiftUI
 
+
 struct InfoView: View {
     
-    
     var body: some View {
-            VStack{
-               
-                Text("Facts")
-                
-                Spacer()
-                
-                HStack{
+        
+        NavigationView{
+            ZStack{
+                Rectangle()
+                    .foregroundColor(Color.blueish)
+                    .ignoresSafeArea()
+                VStack{
+                    
+                    Text("Info")
+                        .font(Constants.largeFancyFont)
+                        .foregroundColor(Color.lightGreen)
                     Spacer()
-                    Text("Enough plastic bottles are discarded over a year to go around the planet 4 times")
-                    Spacer()
-                    Text("More than 90% of our ocean plastics come from just 10 rivers")
+                    HStack{
+                        NavigationLink {
+                            FactsView()
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 125, height: 125)
+                                    .cornerRadius(20)
+                                    .foregroundColor(Color.lightGreen)
+                                Text("facts")
+                                    .foregroundColor(Color.blueish)
+                            }
+                        }
+                        Spacer()
+                        NavigationLink {
+                            RecycleView()
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 125, height: 125)
+                                    .cornerRadius(20)
+                                    .foregroundColor(Color.lightGreen)
+                                Text("recycle")
+                                    .foregroundColor(Color.blueish)
+                            }
+                        }
+                        
+                    }.padding(50)
+                   Spacer()
                 }
-               
-                Spacer()
-                
-                HStack{
-                    Text("The largest dumping site of plastics is not a landfill, it is the pacific ocean!")
-                    Spacer()
-                    Text("The average person creates almost five pounds of trash per day")
-           
-                    }
-                
-                Spacer()
-                
-                HStack{
-                    Text("The largest dumping site of plastics is not a landfill, it is the pacific ocean!")
-                    Spacer()
-                    Text("The average person creates almost five pounds of trash per day")
-           
-                    }
-                
-                Spacer()
-                
-                HStack{
-                    Text("The largest dumping site of plastics is not a landfill, it is the pacific ocean!")
-                    Spacer()
-                    Text("The average person creates almost five pounds of trash per day")
-           
-                    }
-                
-            }.padding()
-  
+            }
+            }
+        }
     }
-}
 
-    
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
         InfoView()
