@@ -13,13 +13,15 @@ class User: ObservableObject{
     @Published var emailAddress: String
     @Published var password: String
     @Published var subscribe: Bool
+    @Published var polarName: String
     
-    init(name: String = "", age: Int = 17, emailAddress: String = "", password: String = "", subscribe: Bool = false){
+    init(name: String = "", age: Int = 17, emailAddress: String = "", password: String = "", subscribe: Bool = false, polarName: String = ""){
         self.name = name
         self.age = age
         self.emailAddress = emailAddress
         self.password = password
         self.subscribe = subscribe
+        self.polarName = polarName
     }
     
 }
