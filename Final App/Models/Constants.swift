@@ -12,6 +12,7 @@ extension Color {
     static let darkGreen = Color("darkGreen")
     static let lightGreen = Color("lightGreen")
     static let yellow = Color("yellow")
+    static let lightBlue = Color("lightBlue")
 }
 
 struct Constants {
