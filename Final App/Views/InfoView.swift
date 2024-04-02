@@ -15,13 +15,13 @@ struct InfoView: View {
         NavigationView{
             ZStack{
                 Rectangle()
-                    .foregroundColor(Color.blueish)
+                    .foregroundColor(Color.white)
                     .ignoresSafeArea()
                 VStack{
                     
                     Text("Info")
                         .font(Constants.largeFancyFont)
-                        .foregroundColor(Color.lightGreen)
+                        .foregroundColor(Color.blueish)
                     Spacer()
                     HStack{
                         NavigationLink {
@@ -31,9 +31,9 @@ struct InfoView: View {
                                 Rectangle()
                                     .frame(width: 125, height: 125)
                                     .cornerRadius(20)
-                                    .foregroundColor(Color.lightGreen)
+                                    .foregroundColor(Color.lightBlue)
                                 Text("facts")
-                                    .foregroundColor(Color.blueish)
+                                    .foregroundColor(Color.black)
                             }
                         }
                         Spacer()
@@ -46,7 +46,7 @@ struct InfoView: View {
                                     .cornerRadius(20)
                                     .foregroundColor(Color.lightGreen)
                                 Text("recycle")
-                                    .foregroundColor(Color.blueish)
+                                    .foregroundColor(Color.black)
                             }
                         }
                         
