@@ -11,66 +11,53 @@ struct FactsView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .foregroundColor(Color.blueish)
+                .foregroundColor(Color.white)
                 .ignoresSafeArea()
             
             VStack{
                 
                 Text("Facts")
                     .font(Constants.largeFancyFont)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.blueish)
                 
                 Spacer()
                 
-                HStack{
-                    Rectangle()
-                        .foregroundColor(Color.blueish)
-                    ZStack{
-                        Ellipse()
-                            .foregroundColor(Color.lightGreen)
-                        Text("Enough plastic bottles are discarded over a year to go around the planet 4 times")
-                            .font(Constants.smallFancyFont)
-                    }
-                }
+                Text("Enough plastic bottles are discarded over a year to go around the planet 4 times")
+                        .font(Constants.smallFancyFont)
+                        .frame(width: 325,height: 125)
+                        .background(Color.lightBlue)
+                        .cornerRadius(20)
+                    
+            
                 Spacer()
                 
-                HStack{
-                    ZStack{
-                        Ellipse()
-                            .foregroundColor(Color.lightGreen)
-                        Text("More than 90% of our ocean plastics come from just 10 rivers")
-                            .font(Constants.smallFancyFont)
-                    }
-                    Rectangle()
-                        .foregroundColor(Color.blueish)
-                }
+                Text("More than 90% of our ocean plastics come from just 10 rivers")
+                        .font(Constants.smallFancyFont)
+                        .frame(width: 325,height: 125)
+                        .background(Color.lightGreen)
+                        .cornerRadius(20)
+                    
+
                 
                 Spacer()
+
+
+                Text("The largest dumping site of plastics is not a landfill, it is the pacific ocean")
+                    .font(Constants.smallFancyFont)
+                    .frame(width: 325,height: 125)
+                    .background(Color.lightBlue)
+                    .cornerRadius(20)
                 
-                HStack{
-                    Rectangle()
-                        .foregroundColor(Color.blueish)
-                    ZStack{
-                        Ellipse()
-                            .foregroundColor(Color.lightGreen)
-                        Text("The largest dumping site of plastics is not a landfill, it is the pacific ocean")
-                            .font(Constants.smallFancyFont)
-                    }
-                }
-                
+  
                 Spacer()
-                
-                HStack{
-                    ZStack{
-                        Ellipse()
-                            .foregroundColor(Color.lightGreen)
-                        Text("The average person creates almost five pounds of trash per day")
-                            .font(Constants.smallFancyFont)
-                        
-                    }
-                    Rectangle()
-                        .foregroundColor(Color.blueish)
-                }
+
+
+                Text("The average person creates almost five pounds of trash per day")
+                    .font(Constants.smallFancyFont)
+                    .frame(width: 325,height: 125)
+                    .background(Color.lightGreen)
+                    .cornerRadius(20)
+      
                 
             }.padding(20)
             

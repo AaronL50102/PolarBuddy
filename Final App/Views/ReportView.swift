@@ -15,57 +15,69 @@ struct ReportView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color.blueish)
+                .foregroundColor(Color.white)
                 .ignoresSafeArea()
             
             VStack {
                 Text("By recycling you have saved ... ")
-                    .font(Constants.largeFont)
+                    .font(Constants.largeFancyFont)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(Color.blueish)
                 
                 VStack {
                     ZStack {
-                        Ellipse()
-                            .foregroundColor(Color.lightGreen)
-                            .frame(width: 350, height: 150, alignment: .leading)
+                        Rectangle()
+                            .foregroundColor(Color.lightBlue)
+                            .cornerRadius(20)
+                            .frame(width: 325, height: 125, alignment: .leading)
                         VStack {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
                             Text("20")
                                 .font(Constants.largeFancyFont)
+                                .foregroundColor(Color.black)
                             Text("Kilograms of Carbon Emissions")
                                 .font(Constants.smallFancyFont)
+                                .foregroundColor(Color.black)
                         }
                     }.padding()
                     
                     ZStack {
-                        Ellipse()
+                        Rectangle()
                             .foregroundColor(Color.lightGreen)
-                            .frame(width: 350, height: 150, alignment: .leading)
+                            .cornerRadius(20)
+                            .frame(width: 325, height: 125, alignment: .leading)
                         VStack {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
                             Text("20")
                                 .font(Constants.largeFancyFont)
+                                .foregroundColor(Color.black)
                             Text("US Dollars")
                                 .font(Constants.smallFancyFont)
+                                .foregroundColor(Color.black)
+                            
+                            
                         }
                     }.padding()
                     
                     ZStack {
-                        Ellipse()
-                            .foregroundColor(Color.lightGreen)
-                            .frame(width: 350, height: 159, alignment: .leading)
+                        Rectangle()
+                            .foregroundColor(Color.lightBlue)
+                            .cornerRadius(20)
+                            .frame(width: 325, height: 125, alignment: .leading)
                         VStack {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
                             Text("20")
                                 .font(Constants.largeFancyFont)
+                                .foregroundColor(Color.black)
                             Text("Grams of Plastic Waste")
                                 .font(Constants.smallFancyFont)
+                                .foregroundColor(Color.black)
                         }
                     }.padding()
                 }
