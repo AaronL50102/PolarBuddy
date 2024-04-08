@@ -9,7 +9,33 @@ import SwiftUI
 
 struct LoginView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Spacer()
+            Button {
+                
+            } label: {
+                Text("Sign Out")
+                    .foregroundColor(.black)
+                    .font(Constants.mediumFont)
+                    .frame(width: 300,height: 60)
+                    .background(Color.lightBlue)
+                    .cornerRadius(20)
+                    .padding()
+                
+            }
+            
+            Button {
+                
+            } label: {
+                Text("Update Picture")
+                    .foregroundColor(.black)
+                    .font(Constants.mediumFont)
+                    .frame(width: 300,height: 60)
+                    .background(Color.lightBlue)
+                    .cornerRadius(20)
+                    .padding()
+            }
+        }
     }
 }
 
