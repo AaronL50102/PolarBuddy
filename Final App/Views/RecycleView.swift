@@ -13,8 +13,54 @@ struct RecycleView: View {
             Rectangle()
                 .foregroundColor(Color.white)
                 .ignoresSafeArea()
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color.black)
+            
+            VStack{
+                
+                Text("How to Recycle")
+                    .font(Constants.mediumFancyFont)
+                    .foregroundColor(Color.blueish)
+                
+                Spacer()
+                
+                Text("RULE 1: Recycle bottles, cans, paper and cardboard")
+                        .font(Constants.smallFancyFont)
+                        .frame(width: 325,height: 125)
+                        .background(Color.lightBlue)
+                        .cornerRadius(20)
+                    
+            
+                Spacer()
+                
+                Text("RULE 2: Keep food and liquid out of your recycling")
+                        .font(Constants.smallFancyFont)
+                        .frame(width: 325,height: 125)
+                        .background(Color.lightGreen)
+                        .cornerRadius(20)
+                    
+
+                
+                Spacer()
+
+
+                Text("RULE 3: No loose plastic bags and no bagged recyclables")
+                    .font(Constants.smallFancyFont)
+                    .frame(width: 325,height: 125)
+                    .background(Color.lightBlue)
+                    .cornerRadius(20)
+                
+  
+                Spacer()
+
+
+                Text("RULE 4: Look for bins with this symbol")
+                    .font(Constants.smallFancyFont)
+                    .frame(width: 325,height: 125)
+                    .background(Color.lightGreen)
+                    .cornerRadius(20)
+      
+                
+            }.padding(20)
+            
         }
     }
 }
