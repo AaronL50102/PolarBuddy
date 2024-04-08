@@ -21,11 +21,10 @@ struct SignUpView: View {
                 Spacer()
                 Spacer()
                 Spacer()
-                Spacer()
-                Spacer()
+                
                 TextField("email address", text: $user.emailAddress)
                     .padding()
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                 SecureField("password", text: $user.password)
                     .padding()
                 Spacer()
@@ -34,7 +33,7 @@ struct SignUpView: View {
                     Auth.auth().createUser(withEmail: user.emailAddress, password: user.password){user, error in
                         if let _ = user{
                             self.user.subscribe = true
-                            print("successfully logged in!!")
+                            print("successfully signed up!!")
                         } else if let e = error {
                             print(e.localizedDescription)
                         }
@@ -47,6 +46,26 @@ struct SignUpView: View {
                         .background(Color.blueish)
                         .cornerRadius(20)
                 }
+                
+                Button {
+                    Auth.auth().signIn(withEmail: user.emailAddress, password: user.password){user, error in
+                        if let _ = user{
+                            self.user.subscribe = true
+                            print("successfully logged in!!")
+                        } else if let e = error {
+                            print(e.localizedDescription)
+                        }
+                    }
+                } label: {
+                    Text("Log In")
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 100)
+                        .padding(.vertical, 10)
+                        .background(Color.blueish)
+                        .cornerRadius(20)
+                }
+
+
                 Spacer()
  
             }

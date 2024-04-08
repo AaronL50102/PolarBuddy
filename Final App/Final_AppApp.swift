@@ -20,12 +20,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Final_AppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @StateObject var user: User = User()
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            
+            StartView()
+                .environmentObject(user)
         }
     }
 }

@@ -12,6 +12,10 @@ import FirebaseAuth
 import FirebaseDatabase
 
 struct ReportView: View {
+    
+    @EnvironmentObject var user: User
+    @State var showSheet = false
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -19,6 +23,17 @@ struct ReportView: View {
                 .ignoresSafeArea()
             
             VStack {
+                Button {
+                    user.waterBottle = user.waterBottle + 1
+                    
+                    guard let uid = Auth.auth().currentUser?.uid else {return}
+                    
+                    Database.database().reference().child("users/\(uid)/CO2 Emissions").setValue(user.co2Emissions())
+                } label: {
+                    Text("Add Water Bottle")
+                }
+
+                
                 Text("By recycling you have saved ... ")
                     .font(Constants.largeFancyFont)
                     .multilineTextAlignment(.center)
@@ -34,12 +49,14 @@ struct ReportView: View {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
-                            Text("20")
+                            Text("\(user.co2Emissions())")
                                 .font(Constants.largeFancyFont)
                                 .foregroundColor(Color.black)
                             Text("Kilograms of Carbon Emissions")
                                 .font(Constants.smallFancyFont)
                                 .foregroundColor(Color.black)
+
+//                            Database.database().reference().child("users/\(user.uid)/CO2 Emissions").setValue(Double(user.waterBottle) * 0.838 + Double(user.aluminumCan) * 0.0968 + Double(user.cardboard) * 1.814368 + Double(user.groceryBag) * 1.58)
                         }
                     }.padding()
                     
@@ -52,7 +69,7 @@ struct ReportView: View {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
-                            Text("20")
+                            Text("\(Double(user.waterBottle) * 0.05 + Double(user.aluminumCan) * 0.01 + Double(user.cardboard) * 0.02 + Double(user.groceryBag) * 0.01)")
                                 .font(Constants.largeFancyFont)
                                 .foregroundColor(Color.black)
                             Text("US Dollars")
@@ -72,7 +89,7 @@ struct ReportView: View {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
-                            Text("20")
+                            Text("\(Double(user.waterBottle) * 8.5 + Double(user.groceryBag) * 14.67)")
                                 .font(Constants.largeFancyFont)
                                 .foregroundColor(Color.black)
                             Text("Grams of Plastic Waste")
@@ -82,6 +99,23 @@ struct ReportView: View {
                     }.padding()
                 }
             }
+//            .sheet(isPresented: $showSheet, onDismiss: {
+//                guard let uid = Auth.auth().currentUser?.uid else {return}
+//                
+//                let co2e = user.co2Emissions()
+//
+//                Storage.storage().reference().child("users/\(uid)").putData(co2e) { meta, error in
+//                    if let _ = meta {
+//                        Storage.storage().reference().child("users/\(uid)").downloadURL { url, error in
+//                            if let u = url {
+//                                Database.database().reference().child("users/\(uid)/imagepath").setValue(u.absoluteString)
+//                            }
+//                        }
+//                    }
+//                }
+//            }, content: {
+//
+//            })
         }
     }
 }
@@ -89,6 +123,7 @@ struct ReportView: View {
 struct ReportView_Previews: PreviewProvider {
     static var previews: some View {
         ReportView()
+            .environmentObject(User())
 
     }
 }

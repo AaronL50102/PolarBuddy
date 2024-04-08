@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
 
-class User: ObservableObject{
+class User: ObservableObject {
     @Published var name: String = ""
     @Published var age: Int = 18
     @Published var emailAddress: String = ""
@@ -24,6 +24,7 @@ class User: ObservableObject{
     @Published var aluminumCan: Int = 0
     @Published var cardboard: Int = 0
     @Published var groceryBag: Int = 0
+//    @Published var plasticWaste: Double = Double(waterBottle) * 8.5 + Double(groceryBag) * 14.67
 
     init(emailAdress: String = "", password: String = "") {
         self.emailAddress = emailAddress
@@ -32,8 +33,8 @@ class User: ObservableObject{
         guard let uid = Auth.auth().currentUser?.uid else {return}
         self.uid = uid
 
-        self.loggedIn = true
-        self.subscribe = true
+        self.loggedIn = false
+        self.subscribe = false
 
         Task {
             guard let n = try? await Database.database().reference().child("users/\(uid)/name").getData() else {return}
@@ -54,7 +55,13 @@ class User: ObservableObject{
             guard let g = try? await Database.database().reference().child("users/\(uid)/groceryBag").getData() else {return}
             self.groceryBag = g.value as? Int ?? 0
         }
-
-    }    
-
+    }
+    
+    func co2Emissions() -> Double {
+        return Double(waterBottle) * 0.84 + Double(aluminumCan) * 0.097 + Double(cardboard) * 1.81 + Double(groceryBag) * 1.58
+    }
+    
+    func setco2Emissions() -> Void {
+        Database.database().reference().child("users/\(uid)/CO2 Emissions").setValue(co2Emissions())
+    }
 }
