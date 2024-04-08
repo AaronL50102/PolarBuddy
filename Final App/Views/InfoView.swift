@@ -18,37 +18,43 @@ struct InfoView: View {
                     .foregroundColor(Color.white)
                     .ignoresSafeArea()
                 VStack{
-                    
+                   Spacer()
+
                     Text("Info")
                         .font(Constants.largeFancyFont)
                         .foregroundColor(Color.blueish)
+                   
                     Spacer()
-                    HStack{
+                    VStack{
                         NavigationLink {
                             FactsView()
                         } label: {
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 125, height: 125)
-                                    .cornerRadius(20)
-                                    .foregroundColor(Color.lightBlue)
-                                Text("facts")
-                                    .foregroundColor(Color.black)
+                                Image("tree")
+                                    .resizable()
+                                    .cornerRadius(40)
+                                Text("Facts")
+                                    .font(Constants.largeFancyFont)
+                                    .foregroundColor(Color.white)
                             }
                         }
                         Spacer()
+                        Spacer()
+                        
                         NavigationLink {
                             RecycleView()
                         } label: {
                             ZStack{
-                                Rectangle()
-                                    .frame(width: 125, height: 125)
-                                    .cornerRadius(20)
-                                    .foregroundColor(Color.lightGreen)
-                                Text("recycle")
-                                    .foregroundColor(Color.black)
+                                Image("ocean")
+                                    .resizable()
+                                    .cornerRadius(40)
+                                Text("Recycle")
+                                    .font(Constants.largeFancyFont)
+                                    .foregroundColor(Color.white)
                             }
                         }
+                        
+                        
                         
                     }.padding(50)
                    Spacer()
