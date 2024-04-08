@@ -12,13 +12,20 @@ struct StoreView: View {
     @EnvironmentObject var store: Store
     
     var body: some View {
-
-        NavigationView {
+        ZStack{
+            Rectangle()
+                .foregroundColor(.white)
+                .ignoresSafeArea()
+            NavigationView {
                 List(store.products) { product in
                     NavigationLink(destination: {
                         ProductDetailView(product: product)
                     }, label: {
                         HStack{
+                            Image(product.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 150)
                             Spacer()
                             VStack{
                                 Text(product.name)
@@ -30,7 +37,7 @@ struct StoreView: View {
                 }
                 .navigationTitle("Products")
             } }
-
+    }
             }
 
     struct StoreView_Previews: PreviewProvider {
