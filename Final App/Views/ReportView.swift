@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 struct ReportView: View {
-    
+        
     @EnvironmentObject var user: User
     @State var showSheet = false
     
@@ -23,15 +23,22 @@ struct ReportView: View {
                 .ignoresSafeArea()
             
             VStack {
-                Button {
-                    user.waterBottle = user.waterBottle + 1
-                    
-                    guard let uid = Auth.auth().currentUser?.uid else {return}
-                    
-                    Database.database().reference().child("users/\(uid)/CO2 Emissions").setValue(user.co2Emissions())
-                } label: {
-                    Text("Add Water Bottle")
-                }
+//                Button {
+//                    guard let uid = Auth.auth().currentUser?.uid else {return}
+//
+//                    user.addBottle()
+//                    print("\(user.waterBottle)")
+//                } label: {
+//                    Text("Add Water Bottle")
+//                }
+                
+//                TextField("name", text: $user.name).onSubmit {
+//                    guard let uid = Auth.auth().currentUser?.uid else {return}
+//
+//                    Database.database().reference().child("users/\(user.uid)/name").setValue(user.name)
+//                }
+                
+//                Text("\(user.name)")
 
                 
                 Text("By recycling you have saved ... ")
@@ -49,7 +56,7 @@ struct ReportView: View {
 //                            Image("co2")
 //                                .resizable()
 //                                .aspectRatio(contentMode: .fit)
-                            Text("\(user.co2Emissions())")
+                            Text("\(Double(user.waterBottle) * 0.838)")
                                 .font(Constants.largeFancyFont)
                                 .foregroundColor(Color.black)
                             Text("Kilograms of Carbon Emissions")
@@ -101,10 +108,10 @@ struct ReportView: View {
             }
 //            .sheet(isPresented: $showSheet, onDismiss: {
 //                guard let uid = Auth.auth().currentUser?.uid else {return}
-//                
+//
 //                let co2e = user.co2Emissions()
 //
-//                Storage.storage().reference().child("users/\(uid)").putData(co2e) { meta, error in
+//                Storage.storage().reference().child("users/\(uid)").(co2e) { meta, error in
 //                    if let _ = meta {
 //                        Storage.storage().reference().child("users/\(uid)").downloadURL { url, error in
 //                            if let u = url {
@@ -127,3 +134,5 @@ struct ReportView_Previews: PreviewProvider {
 
     }
 }
+
+
