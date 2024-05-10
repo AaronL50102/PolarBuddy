@@ -29,7 +29,22 @@ struct StoreView: View {
                             Spacer()
                             VStack{
                                 Text(product.name)
-                                Text("$\(String(format: "%.2f", product.price))")
+                                    .font(.custom("Helvetica Neue Thin", size: 20))
+                                    .offset(x: 50, y: 0)
+                                    .padding()
+                                ZStack{
+                                    Spacer()
+                                    Text("\(String(product.price))")
+                                        .font(.custom("Helvetica Neue Thin", size: 25))
+                                        .offset(x: 20, y: 0)
+                                        .padding()
+                                    Image("star")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .scaleEffect(0.3)
+                                        .offset(x: 50, y: 0)
+                                    
+                                }
                                 //Spacer()
                             }
                         }.padding()
@@ -44,5 +59,6 @@ struct StoreView: View {
         static var previews: some View {
             StoreView()
                 .environmentObject(Store())
+                .environmentObject(Cart())
         }
     }

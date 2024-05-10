@@ -34,6 +34,7 @@ struct SignUpView: View {
                         if let _ = user{
                             self.user.subscribe = true
                             print("successfully signed up!!")
+                            self.user.getUserData()
                         } else if let e = error {
                             print(e.localizedDescription)
                         }
@@ -52,6 +53,7 @@ struct SignUpView: View {
                         if let _ = user{
                             self.user.subscribe = true
                             print("successfully logged in!!")
+                            self.user.getUserData();
                         } else if let e = error {
                             print(e.localizedDescription)
                         }

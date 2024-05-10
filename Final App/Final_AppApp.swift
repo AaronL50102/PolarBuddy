@@ -19,6 +19,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct Final_AppApp: App {
+    @StateObject var cart = Cart()
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var user: User = User()
     @StateObject var factsModel: FactsModel = FactsModel()
@@ -28,7 +30,11 @@ struct Final_AppApp: App {
         WindowGroup {
             FactsView()
                 .environmentObject(user)
+
                 .environmentObject(factsModel)
+
+                .environmentObject(cart)
+
         }
     }
 }
