@@ -30,6 +30,7 @@
 		5D6C5AEF2BA9F47E00D5FB69 /* FactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C5AEE2BA9F47E00D5FB69 /* FactsView.swift */; };
 		5D6C5AF12BA9F48A00D5FB69 /* RecycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C5AF02BA9F48A00D5FB69 /* RecycleView.swift */; };
 		5D6C5AF52BAB4DE400D5FB69 /* InfoHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C5AF42BAB4DE400D5FB69 /* InfoHomeView.swift */; };
+		5D6C5AF72BC9A1BD00D5FB69 /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C5AF62BC9A1BD00D5FB69 /* FactsModel.swift */; };
 		D3BF3C282BA4C5C800E2F641 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF3C272BA4C5C800E2F641 /* Constants.swift */; };
 		D3BF3C2A2BBDD5BC00E2F641 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF3C292BBDD5BC00E2F641 /* StartView.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		5D6C5AEE2BA9F47E00D5FB69 /* FactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsView.swift; sourceTree = "<group>"; };
 		5D6C5AF02BA9F48A00D5FB69 /* RecycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleView.swift; sourceTree = "<group>"; };
 		5D6C5AF42BAB4DE400D5FB69 /* InfoHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHomeView.swift; sourceTree = "<group>"; };
+		5D6C5AF62BC9A1BD00D5FB69 /* FactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsModel.swift; sourceTree = "<group>"; };
 		6CE9B896955E16C534F549AF /* Pods-Final App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final App.release.xcconfig"; path = "Target Support Files/Pods-Final App/Pods-Final App.release.xcconfig"; sourceTree = "<group>"; };
 		A7A1FD7EAA1CC48088821A17 /* Pods_Final_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Final_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D9FD2828FF9582D44613FB /* Pods-Final App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final App.debug.xcconfig"; path = "Target Support Files/Pods-Final App/Pods-Final App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +164,11 @@
 				01F9DE1B2BA9F62D00B7A931 /* User.swift */,
 				01F9DE252BB62EFF00B7A931 /* Store.swift */,
 				01F9DE272BB62F3200B7A931 /* Product.swift */,
+
+				5D6C5AF62BC9A1BD00D5FB69 /* FactsModel.swift */,
+
 				01F9DE2B2BD1877300B7A931 /* Cart.swift */,
+
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				01F9DE1E2BA9F6D200B7A931 /* AuthenticationView.swift in Sources */,
 				01F9DE202BA9F6F300B7A931 /* SignUpView.swift in Sources */,
 				01F9DE262BB62EFF00B7A931 /* Store.swift in Sources */,
+				5D6C5AF72BC9A1BD00D5FB69 /* FactsModel.swift in Sources */,
 				D3BF3C282BA4C5C800E2F641 /* Constants.swift in Sources */,
 				01F9DE222BA9F71700B7A931 /* LoginView.swift in Sources */,
 				01C09AB92BA208CA009EC83F /* ReportView.swift in Sources */,

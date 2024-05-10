@@ -16,6 +16,7 @@ import FirebaseDatabase
     @Published var name: String = ""
     @Published var polarName: String = ""
     @Published var age: Int = 18
+    @Published var polarName: String = ""
     @Published var emailAddress: String = ""
     @Published var password: String = ""
     @Published var subscribe: Bool = false
@@ -87,7 +88,9 @@ import FirebaseDatabase
             guard let a = try? await Database.database().reference().child("user/\(uid)/age").getData() else {return}
             self.age = a.value as? Int ?? 18
             
+
             guard let p = try? await Database.database().reference().child("user/\(uid)/polarName").getData() else {return}
+
             self.polarName = p.value as? String ?? ""
 
             guard let w = try? await Database.database().reference().child("user/\(uid)/bottles").getData() else {
