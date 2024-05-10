@@ -9,11 +9,11 @@ import SwiftUI
 
 struct Product: Identifiable{
     var name: String
-    var price: Double
+    var price: Int
     var image: String
     let id = UUID()
     
-    init(name: String = "Scarf", price: Double = 5, image: String = "scarf"){
+    init(name: String = "Scarf", price: Int = 1, image: String = "scarf"){
         self.name = name
         self.price = price
         self.image = image

@@ -9,9 +9,9 @@ import SwiftUI
 
 class Store: ObservableObject{
     @Published var products: [Product] = [
-        Product(),
-        Product(name: "Scarf", price: 5, image: "scarf"),
-        Product(name: "Friend", price: 25, image: ""),
-        Product(name: "Hat", price: 10, image: "hat")
+        Product(name: "Scarf", price: 1, image: "scarf"),
+        Product(name: "Hat", price: 3, image: "hat"),
+        Product(name: "Glasses", price: 3, image: "glasses"),
+        Product(name: "Wigs", price: 10, image: "wig1")
     ]
 }
