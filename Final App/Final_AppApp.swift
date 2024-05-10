@@ -21,11 +21,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct Final_AppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var user: User = User()
+    @StateObject var factsModel: FactsModel = FactsModel()
     
     var body: some Scene {
+        
         WindowGroup {
-            StartView()
+            FactsView()
                 .environmentObject(user)
+                .environmentObject(factsModel)
         }
     }
 }

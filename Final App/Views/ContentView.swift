@@ -79,5 +79,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(Store())
             .environmentObject(User())
+            .environmentObject(FactsModel())
     }
 }
