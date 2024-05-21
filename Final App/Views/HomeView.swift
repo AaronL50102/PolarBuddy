@@ -69,10 +69,6 @@ struct HomeView: View {
                         .font(Constants.largeFont)
                         .multilineTextAlignment(.center)
                         .foregroundColor(.blueish)
-                    
-                   
-                        
-                 
                     Spacer()
                     Spacer()
                     

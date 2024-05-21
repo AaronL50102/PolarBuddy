@@ -36,22 +36,13 @@ struct RecycleView: View {
                         .frame(width: 325,height: 125)
                         .background(Color.lightGreen)
                         .cornerRadius(20)
-                    
-
-                
                 Spacer()
-
-
                 Text("RULE 3: No loose plastic bags and no bagged recyclables")
                     .font(Constants.smallFancyFont)
                     .frame(width: 325,height: 125)
                     .background(Color.lightBlue)
                     .cornerRadius(20)
-                
-  
                 Spacer()
-
-
                 Text("RULE 4: Look for bins with this symbol")
                     .font(Constants.smallFancyFont)
                     .frame(width: 325,height: 125)
