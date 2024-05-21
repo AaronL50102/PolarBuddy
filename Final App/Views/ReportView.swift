@@ -39,7 +39,6 @@ struct ReportView: View {
 //                }
                 
 //                Text("\(user.name)")
-
                 
                 Text("By recycling you have saved ... ")
                     .font(Constants.largeFancyFont)
