@@ -11,7 +11,8 @@ struct HomeView: View {
     @EnvironmentObject var user: User
     @EnvironmentObject var cart: Cart
     @State var daysOld: Int = 0
-    @State var points: Int = 0
+    @State var points: Int = 90 // Initial value for points
+    let maxPoints: Int = 100 // Maximum value for points
     
     var body: some View {
         
@@ -44,23 +45,55 @@ struct HomeView: View {
                         Spacer()
                         Spacer()
                         Spacer()
-                        Image("polar")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                           
-                            ZStack{
-                                Rectangle()
-                                    .frame(width: 35, height: 320)
-                                    .foregroundColor(.lightBlue)
-                                    .cornerRadius(50)
-                                    .padding()
-                               
-                                Image("star")
+                        ZStack{
+                            Image("polar")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .scaleEffect(2)
+                            if user.hasHat {
+                                Image("hat")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .scaleEffect(0.4)
-                                    .offset(x: 0, y: -200)
+                                    .scaleEffect(0.42)
+                                .offset(x: 5, y: -150)
                             }
+                            if user.hasScarf {
+                                Image("scarf")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaleEffect(0.6)
+                                .offset(x: 5, y: -50)
+                            }
+                            if user.hasGlasses {
+                                Image("glasses")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaleEffect(0.34)
+                                .offset(x: 5, y: -115)
+                            }
+                            
+                        }
+                           
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 35, height: 320)
+                                .foregroundColor(.lightBlue)
+                                .cornerRadius(50)
+                                .padding()
+                            
+                            Rectangle()
+                                .frame(width: 35, height: CGFloat(320 * (CGFloat(points) / CGFloat(maxPoints))))
+                                .foregroundColor(.blueish)
+                                .cornerRadius(50)
+                                .padding(.top, CGFloat(320 * (1 - (CGFloat(points) / CGFloat(maxPoints)))))
+                                .offset(y: CGFloat((320 - (320 * (CGFloat(points) / CGFloat(maxPoints))))) / 2)
+                            
+                            Image("star")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .scaleEffect(0.4)
+                                .offset(x: 0, y: -200)
+                        }
                     }
 
                     Spacer()

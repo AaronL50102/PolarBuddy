@@ -25,15 +25,16 @@ struct Final_AppApp: App {
     @StateObject var user: User = User()
     @StateObject var factsModel: FactsModel = FactsModel()
     
+    
     var body: some Scene {
         
         WindowGroup {
             StartView()
                 .environmentObject(user)
-
                 .environmentObject(factsModel)
-
                 .environmentObject(cart)
+            
+                .environmentObject(store)
 
                 .environmentObject(store)
         }
