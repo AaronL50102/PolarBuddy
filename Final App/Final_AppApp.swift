@@ -20,7 +20,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct Final_AppApp: App {
     @StateObject var cart = Cart()
-    
+    @StateObject var store = Store()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var user: User = User()
     @StateObject var factsModel: FactsModel = FactsModel()
@@ -28,13 +28,14 @@ struct Final_AppApp: App {
     var body: some Scene {
         
         WindowGroup {
-            FactsView()
+            StartView()
                 .environmentObject(user)
 
                 .environmentObject(factsModel)
 
                 .environmentObject(cart)
 
+                .environmentObject(store)
         }
     }
 }
