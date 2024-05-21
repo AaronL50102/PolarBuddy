@@ -26,6 +26,9 @@ import FirebaseDatabase
     @Published var aluminumCan: Int = 0
     @Published var cardboard: Int = 0
     @Published var groceryBag: Int = 0
+    @Published var hasScarf: Bool = false
+    @Published var hasHat: Bool = false
+    @Published var hasGlasses: Bool = false
 
     init(emailAddress: String = "", password: String = "", polarName: String = "") {
         self.emailAddress = emailAddress
@@ -40,6 +43,19 @@ import FirebaseDatabase
         
         self.loggedIn = false
         self.subscribe = false
+        
+    }
+    
+    func setHasScarf(bool: Bool) -> Void {
+        hasScarf = bool
+    }
+    
+    func setHasHat(bool: Bool) -> Void {
+        hasHat = bool
+    }
+    
+    func setHasGlasses(bool: Bool) -> Void {
+        hasGlasses = bool
     }
     
     func co2Emissions() -> Double {
@@ -89,14 +105,13 @@ import FirebaseDatabase
             
             guard let n = try? await Database.database().reference().child("user/\(uid)/name").getData() else {return}
             self.name = n.value as? String ?? ""
-
+            
             guard let a = try? await Database.database().reference().child("user/\(uid)/age").getData() else {return}
             self.age = a.value as? Int ?? 18
-
             guard let p = try? await Database.database().reference().child("user/\(uid)/polarName").getData() else {return}
-
+            
             self.polarName = p.value as? String ?? ""
-
+            
             guard let w = try? await Database.database().reference().child("user/\(uid)/bottles").getData() else {
                 print("it failed sorry :(")
                 return
@@ -105,12 +120,21 @@ import FirebaseDatabase
             print("updated water bottles to \(self.waterBottle)" )
             guard let a = try? await Database.database().reference().child("user/\(uid)/aluminumCan").getData() else {return}
             self.aluminumCan = a.value as? Int ?? 0
-
+            
             guard let c = try? await Database.database().reference().child("user/\(uid)/cardboard").getData() else {return}
             self.cardboard = c.value as? Int ?? 0
-
+            
             guard let g = try? await Database.database().reference().child("user/\(uid)/groceryBag").getData() else {return}
             self.groceryBag = g.value as? Int ?? 0
+            
+            guard let g = try? await Database.database().reference().child("user/\(uid)/hasScarf").getData() else {return}
+            self.hasScarf = g.value as? Bool ?? false
+            
+            guard let g = try? await Database.database().reference().child("user/\(uid)/hasHat").getData() else {return}
+            self.hasHat = g.value as? Bool ?? false
+            
+            guard let g = try? await Database.database().reference().child("user/\(uid)/hasGlasses").getData() else {return}
+            self.hasGlasses = g.value as? Bool ?? false
         }
     }
 }

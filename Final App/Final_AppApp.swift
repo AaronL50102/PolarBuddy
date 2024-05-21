@@ -25,6 +25,7 @@ struct Final_AppApp: App {
     @StateObject var user: User = User()
     @StateObject var factsModel: FactsModel = FactsModel()
     
+    
     var body: some Scene {
         
         WindowGroup {
@@ -32,6 +33,8 @@ struct Final_AppApp: App {
                 .environmentObject(user)
                 .environmentObject(factsModel)
                 .environmentObject(cart)
+            
+                .environmentObject(store)
 
                 .environmentObject(store)
         }
