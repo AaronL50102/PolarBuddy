@@ -30,9 +30,7 @@ struct Final_AppApp: App {
         WindowGroup {
             StartView()
                 .environmentObject(user)
-
                 .environmentObject(factsModel)
-
                 .environmentObject(cart)
 
                 .environmentObject(store)

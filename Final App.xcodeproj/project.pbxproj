@@ -164,11 +164,8 @@
 				01F9DE1B2BA9F62D00B7A931 /* User.swift */,
 				01F9DE252BB62EFF00B7A931 /* Store.swift */,
 				01F9DE272BB62F3200B7A931 /* Product.swift */,
-
 				5D6C5AF62BC9A1BD00D5FB69 /* FactsModel.swift */,
-
 				01F9DE2B2BD1877300B7A931 /* Cart.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
