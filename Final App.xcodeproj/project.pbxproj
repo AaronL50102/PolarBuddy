@@ -33,6 +33,7 @@
 		5D6C5AF72BC9A1BD00D5FB69 /* FactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C5AF62BC9A1BD00D5FB69 /* FactsModel.swift */; };
 		D3BF3C282BA4C5C800E2F641 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF3C272BA4C5C800E2F641 /* Constants.swift */; };
 		D3BF3C2A2BBDD5BC00E2F641 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BF3C292BBDD5BC00E2F641 /* StartView.swift */; };
+		FE6366D12BF674BA00F05A8B /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FE6366D02BF674BA00F05A8B /* MobileNetV2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		B0D9FD2828FF9582D44613FB /* Pods-Final App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Final App.debug.xcconfig"; path = "Target Support Files/Pods-Final App/Pods-Final App.debug.xcconfig"; sourceTree = "<group>"; };
 		D3BF3C272BA4C5C800E2F641 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3BF3C292BBDD5BC00E2F641 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		FE6366D02BF674BA00F05A8B /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				01C09AB22B9B81D2009EC83F /* GoogleService-Info.plist */,
 				01C09AA42B9B7B4F009EC83F /* Final_AppApp.swift */,
 				01C09AA82B9B7B50009EC83F /* Assets.xcassets */,
+				FE6366D02BF674BA00F05A8B /* MobileNetV2.mlmodel */,
 				01C09AAA2B9B7B50009EC83F /* Preview Content */,
 			);
 			path = "Final App";
@@ -303,6 +306,7 @@
 				01F9DE2A2BB62FD600B7A931 /* ProductDetailView.swift in Sources */,
 				010FCEA52BD2E9350040A93F /* CartView.swift in Sources */,
 				01F9DE242BAB559E00B7A931 /* StoreView.swift in Sources */,
+				FE6366D12BF674BA00F05A8B /* MobileNetV2.mlmodel in Sources */,
 				5D6C5AF52BAB4DE400D5FB69 /* InfoHomeView.swift in Sources */,
 				5D6C5AEF2BA9F47E00D5FB69 /* FactsView.swift in Sources */,
 				01C09AA52B9B7B4F009EC83F /* Final_AppApp.swift in Sources */,
@@ -436,8 +440,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Final App/Preview Content\"";
+				DEVELOPMENT_TEAM = 2DH7G9PN4H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Experiment camera use";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -469,8 +475,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Final App/Preview Content\"";
+				DEVELOPMENT_TEAM = 2DH7G9PN4H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Experiment camera use";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
