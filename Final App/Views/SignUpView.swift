@@ -19,9 +19,12 @@ struct SignUpView: View {
                 //.ignoresSafeArea()
             VStack{
                 Spacer()
-                Spacer()
-                Spacer()
                 
+                Image("logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit
+                    )
+                                
                 TextField("email address", text: $user.emailAddress)
                     .padding()
                     .foregroundColor(.black)
@@ -31,7 +34,8 @@ struct SignUpView: View {
                 
                 Button {
                     Auth.auth().createUser(withEmail: user.emailAddress, password: user.password){user, error in
-                        if let _ = user{
+                        if let u = user{
+                            self.user.getUserData()
                             self.user.subscribe = true
                             print("successfully signed up!!")
                             self.user.getUserData()
@@ -50,7 +54,7 @@ struct SignUpView: View {
                 
                 Button {
                     Auth.auth().signIn(withEmail: user.emailAddress, password: user.password){user, error in
-                        if let _ = user{
+                        if let u = user{
                             self.user.subscribe = true
                             print("successfully logged in!!")
                             self.user.getUserData();

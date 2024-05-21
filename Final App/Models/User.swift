@@ -27,17 +27,17 @@ import FirebaseDatabase
     @Published var cardboard: Int = 0
     @Published var groceryBag: Int = 0
 
-    init(emailAdress: String = "", password: String = "", polarName: String = "") {
+    init(emailAddress: String = "", password: String = "", polarName: String = "") {
         self.emailAddress = emailAddress
         self.password = password
         
         guard let uid = Auth.auth().currentUser?.uid else {
             print("failed")
             return
-            
         }
+        
         self.uid = uid
-
+        
         self.loggedIn = false
         self.subscribe = false
     }
@@ -80,14 +80,18 @@ import FirebaseDatabase
     
     func getUserData() -> Void {
         print("it is being called")
+        print(uid)
         Task {
             print("running it is")
+            
+            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
+            self.uid = u.value as? String ?? ""
+            
             guard let n = try? await Database.database().reference().child("user/\(uid)/name").getData() else {return}
             self.name = n.value as? String ?? ""
 
             guard let a = try? await Database.database().reference().child("user/\(uid)/age").getData() else {return}
             self.age = a.value as? Int ?? 18
-            
 
             guard let p = try? await Database.database().reference().child("user/\(uid)/polarName").getData() else {return}
 
