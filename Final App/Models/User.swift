@@ -16,7 +16,7 @@ import FirebaseDatabase
     @Published var name: String = ""
     @Published var polarName: String = ""
     @Published var age: Int = 18
-    @Published var polarName: String = ""
+//    @Published var polarName: String = ""
     @Published var emailAddress: String = ""
     @Published var password: String = ""
     @Published var subscribe: Bool = false

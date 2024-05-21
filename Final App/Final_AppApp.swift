@@ -28,11 +28,9 @@ struct Final_AppApp: App {
     var body: some Scene {
         
         WindowGroup {
-            FactsView()
+            StartView()
                 .environmentObject(user)
-
                 .environmentObject(factsModel)
-
                 .environmentObject(cart)
 
         }
