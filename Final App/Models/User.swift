@@ -37,12 +37,9 @@ import FirebaseDatabase
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
-        
         self.uid = uid
-        
         self.loggedIn = false
         self.subscribe = false
-        
     }
     
     func setHasScarf(bool: Bool) -> Void {
@@ -66,7 +63,11 @@ import FirebaseDatabase
         
         // update database
         Database.database().reference().child("user/\(uid)/bottles").setValue(waterBottle)
-
+    }
+    
+    //Temporary test function
+    func getBottle() -> Int {
+        return self.waterBottle
     }
     
     func addCan() -> Void {
@@ -74,7 +75,6 @@ import FirebaseDatabase
         
         // update database
         Database.database().reference().child("user/\(uid)/aluminumCan").setValue(aluminumCan)
-
     }
     
     func addCardboard() -> Void {

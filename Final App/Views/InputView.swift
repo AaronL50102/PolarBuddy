@@ -21,6 +21,8 @@ struct InputView: View {
     @State private var selectedImage: UIImage?
     @State var photo: UIImage?
     
+    @State var text: String = ""
+    
     var body: some View {
         /*VStack {
             Spacer()
@@ -68,13 +70,21 @@ struct InputView: View {
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
-                        Text(identifyImage(image: selectedImage))
-                            .fontWeight(.bold)
-                            .font(.system(size: 50))
-                            .foregroundColor(Color.red)
+                        HStack{
+                            Text(identifyImage(image: selectedImage, user2: user))
+                                .fontWeight(.bold)
+                                .font(.system(size: 50))
+                                .foregroundColor(Color.red)
+                            Button {
+                                addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
+                            } label: {
+                                Text("Correct?")
+                            }
+
+                            
+                        }
                     }
                 }
-                
                 Button{
                     self.showCamera.toggle()
                     photo = self.selectedImage ?? UIImage()
@@ -89,8 +99,9 @@ struct InputView: View {
     }
 }
 
-func identifyImage(image: UIImage) -> String /*[String : Double]*/{
-    var classify: String
+@MainActor func identifyImage(image: UIImage, user2: User) -> String /*[String : Double]*/{
+    var classify: String = ""
+    let user: User = user2
 
     do{
         let config = MLModelConfiguration()
@@ -104,6 +115,16 @@ func identifyImage(image: UIImage) -> String /*[String : Double]*/{
         classify = "Unknown"
     }
     return classify
+}
+
+@MainActor func addPoints(type: String, user2: User){
+    
+    let user: User = user2
+    
+    if type == "water bottle" || type == "water jug" {
+        user.addBottle()
+    }
+    print("Amount of bottle recycled: \(user.getBottle())")
 }
 
 func convertImage(image: UIImage) -> CVPixelBuffer? {
