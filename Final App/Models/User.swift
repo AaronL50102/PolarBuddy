@@ -30,7 +30,14 @@ import FirebaseDatabase
     @Published var hasHat: Bool = false
     @Published var hasGlasses: Bool = false
 
+    @Published var points: Int = 0
+    @Published var stars: Int = 0
+    
+    init(emailAddress: String = "", password: String = "", polarName: String = "") {
+
+
     init(emailAddress: String = "", password: String = "", polarName: String = "", uid: String = "") {
+
         self.emailAddress = emailAddress
         self.password = password
         
@@ -93,6 +100,10 @@ import FirebaseDatabase
 
     }
     
+    func subtractStars(numStars: Int) -> Void {
+        self.stars -= numStars
+    }
+    
     func getUserData() -> Void {
         print("it is being called")
         print(uid)
@@ -141,6 +152,13 @@ import FirebaseDatabase
             
             guard let g = try? await Database.database().reference().child("user/\(uid)/hasGlasses").getData() else {return}
             self.hasGlasses = g.value as? Bool ?? false
+            
+            guard let p = try? await Database.database().reference().child("user/\(uid)/points").getData() else {return}
+            self.points = p.value as? Int ?? 0
+            
+            guard let s = try? await Database.database().reference().child("user/\(uid)/stars").getData() else {return}
+            self.stars = s.value as? Int ?? 0
+
         }
     }
 }

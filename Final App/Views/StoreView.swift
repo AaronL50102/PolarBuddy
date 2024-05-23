@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
+import FirebaseDatabase
 
 struct StoreView: View {
     
     @EnvironmentObject var store: Store
+    @EnvironmentObject var user: User
     
     var body: some View {
         ZStack{
@@ -50,8 +55,25 @@ struct StoreView: View {
                         }.padding()
                     })
                 }
-                .navigationTitle("Products")
-            } }
+                    .navigationTitle("Products")
+            }
+            ZStack{
+                Rectangle()
+                    .frame(width: 120, height: 78)
+                    .foregroundColor(.lightBlue)
+                    .cornerRadius(27)
+                    .offset(x: 100, y: -290)
+                    .padding()
+                Image("starCart")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .scaleEffect(0.17)
+                    .offset(x: 115, y: -290)
+                Text("\(user.stars)")
+                    .font(.custom("Helvetica Neue Thin", size: 30))
+                    .offset(x: 70, y: -290)
+            }
+        }
     }
             }
 
@@ -60,5 +82,6 @@ struct StoreView: View {
             StoreView()
                 .environmentObject(Store())
                 .environmentObject(Cart())
+                .environmentObject(User())
         }
     }

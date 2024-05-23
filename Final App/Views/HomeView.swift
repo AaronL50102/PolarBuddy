@@ -7,14 +7,18 @@
 
 import SwiftUI
 import Firebase
+
+import FirebaseCore
+
 import FirebaseAuth
+
 import FirebaseDatabase
 
 struct HomeView: View {
     @EnvironmentObject var user: User
     @EnvironmentObject var cart: Cart
     @State var daysOld: Int = 0
-    @State var points: Int = 90 // Initial value for points
+ //   @State var points: Int = 60 // Initial value for points
     let maxPoints: Int = 100 // Maximum value for points
     
     var body: some View {
@@ -24,20 +28,39 @@ struct HomeView: View {
                 VStack{
                     Spacer()
                     
-                    NavigationLink {
-                        StoreView()
-                    } label: {
-                        HStack{
-                            Text("Store")
-                            Image(systemName: "cart")
-                        }
+                    HStack{
+                        NavigationLink {
+                            StoreView()
+                        } label: {
+                            HStack{
+                                Text("Store")
+                                Image(systemName: "cart")
+                            }
                             .foregroundColor(.black)
                             .padding()
                             .background(Color.lightBlue)
                             .cornerRadius(20)
                             .padding()
-                        
+                            
+                            Spacer()
+                        }
                         Spacer()
+//                        ZStack{
+//                            Rectangle()
+//                                .frame(width: 90, height: 55)
+//                                .foregroundColor(.lightBlue)
+//                                .cornerRadius(27)
+//                                .padding()
+//                            Image("starCart")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .scaleEffect(0.23)
+//                                .offset(x: 14, y: 0)
+//                            Text("\(user.stars)")
+//                                .font(.custom("Helvetica Neue Thin", size: 26))
+//                                .offset(x: -18, y: 0)
+//                        }
+                        
                     }
                     Spacer()
                     Spacer()
@@ -95,11 +118,11 @@ struct HomeView: View {
                                 .padding()
                             
                             Rectangle()
-                                .frame(width: 35, height: CGFloat(320 * (CGFloat(points) / CGFloat(maxPoints))))
+                                .frame(width: 35, height: CGFloat(320 * (CGFloat(user.points) / CGFloat(maxPoints))))
                                 .foregroundColor(.blueish)
                                 .cornerRadius(50)
-                                .padding(.top, CGFloat(320 * (1 - (CGFloat(points) / CGFloat(maxPoints)))))
-                                .offset(y: CGFloat((320 - (320 * (CGFloat(points) / CGFloat(maxPoints))))) / 2)
+                                .padding(.top, CGFloat(320 * (1 - (CGFloat(user.points) / CGFloat(maxPoints)))))
+                                .offset(y: CGFloat((320 - (320 * (CGFloat(user.points) / CGFloat(maxPoints))))) / 2)
                             
                             Image("star")
                                 .resizable()
