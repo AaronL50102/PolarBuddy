@@ -13,6 +13,11 @@ extension Color {
     static let lightGreen = Color("lightGreen")
     static let yellow = Color("yellow")
     static let lightBlue = Color("lightBlue")
+    static let lightMediumBlue = Color("lightMedium")
+    static let mediumBlue = Color("mediumBlue")
+    static let mediumDarkBlue = Color("mediumDark")
+    static let darkBlue = Color("darkBlue")
+    static let ExtradarkBlue = Color("extraDark")
 }
 
 struct Constants {
