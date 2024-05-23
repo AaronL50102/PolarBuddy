@@ -8,109 +8,100 @@
 import SwiftUI
 
 struct RecycleView: View {
-    
-    @State private var offset = CGSize.zero
+
     var body: some View {
         
-        ZStack{
+       
+        ScrollView{
+            Text("How to Recycle")
+                .font(.custom("Helvetica Neue Thin", size: 40))
+                .bold()
+                .foregroundColor(Color.black)
+            
+            Spacer()
+            
+            ZStack{
                 Rectangle()
-                    .foregroundColor(Color.white)
-                    .ignoresSafeArea()
-                
-                Text("How to Recycle")
-                    .font(Constants.mediumFancyFont)
-                    .foregroundColor(Color.black)
-                    .frame(width: 325,height: 625)
-                    .background(Color.lightBlue)
+                    .frame(width: 325,height: 415)
+                    .foregroundColor(Color.lightMediumBlue)
                     .cornerRadius(20)
-                
-                    .rotationEffect(.degrees(offset.width / 5.0))
-                    .offset(x: offset.width * 5)
-                    .opacity(2 - Double(abs(offset.width / 50)))
-                    .gesture(
-                        DragGesture()
-                            .onChanged { gesture in
-                                offset = gesture.translation
-                            }
-                            .onEnded { _ in
-                                if abs(offset.width) > 100 {
-                                    // remove the card
-                                } else {
-                                    offset = .zero
-                                }
-                            }
-                    )
+                VStack{
+                   Image("bag")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 125)
+                    
+                    Text("RULE 1: know what to throw")
+                        .font(.custom("Helvetica Neue Thin", size: 30))
+                        .bold()
+                        .foregroundColor(Color.white)
+                    
+                        
+                    Text("Only put recyclable materials – paper, cardboard, metal cans, plastic bottles and jugs – in your recycling cart.")
+                        .font(.custom("Helvetica Neue Thin", size: 20))
+                        .frame(width: 300,height: 100)
+                        .foregroundColor(Color.white)
+                    
+                    
+                }
+            }
+            Spacer()
+            
+            ZStack{
+                Rectangle()
+                    .frame(width: 325,height: 415)
+                    .foregroundColor(Color.mediumBlue)
+                    .cornerRadius(20)
+                VStack{
+                    Image("recycleBear")
+                         .resizable()
+                         .aspectRatio(contentMode: .fit)
+                         .frame(width: 145)
+                    
+                    Text("RULE 2: Empty. Clean. Dry.")
+                        .font(.custom("Helvetica Neue Thin", size: 30))
+                        .bold()
+                        .frame(width: 350,height: 100)
+                        .foregroundColor(Color.white)
+                        
+                    Text("Make sure all recyclables have been emptied, rinsed and patted dry. Dirty items will interfere with the recycling process.")
+                        .font(.custom("Helvetica Neue Thin", size: 20))
+                        .frame(width: 300,height: 100)
+                        .foregroundColor(Color.white)
+                }
             }
             
             
+            Spacer()
+            
+            ZStack{
+                Rectangle()
+                    .frame(width: 325,height: 400)
+                    .foregroundColor(Color.mediumDarkBlue)
+                    .cornerRadius(20)
+                VStack{
+                    Image("noBag")
+                         .resizable()
+                         .aspectRatio(contentMode: .fit)
+                         .frame(width: 125)
+                    
+                    Text("RULE 3: Don't Bag It")
+                        .font(.custom("Helvetica Neue Thin", size: 30))
+                        .bold()
+                        .foregroundColor(Color.white)
+                    
+                        
+                    Text("Your recyclable items should be placed loose in the cart. No need to bag them.")
+                        .font(.custom("Helvetica Neue Thin", size: 20))
+                        .frame(width: 300,height: 100)
+                        .foregroundColor(Color.white)
+                }
+            }
+    
             
             
-            
-            //                Text("RULE 1: Recycle bottles, cans, paper, and cardboard")
-            //                    .font(Constants.smallFancyFont)
-            //                    .frame(width: 325,height: 125)
-            //                    .background(Color.lightBlue)
-            //                    .cornerRadius(20)
-            //                    .rotationEffect(.degrees(offset.width / 5.0))
-            //                    .offset(x: offset.width * 5)
-            //                    .opacity(2 - Double(abs(offset.width / 50)))
-            //                    .gesture(
-            //                        DragGesture()
-            //                            .onChanged { gesture in
-            //                                offset = gesture.translation
-            //                            }
-            //                            .onEnded { _ in
-            //                                if abs(offset.width) > 100 {
-            //                                    // remove the card
-            //                                } else {
-            //                                    offset = .zero
-            //                                }
-            //                            }
-            //                    )
-            //            }
-            
-            //
-            //                Spacer()
-            //
-            //                Text("RULE 1: Recycle bottles, cans, paper, and cardboard")
-            //                        .font(Constants.smallFancyFont)
-            //                        .frame(width: 325,height: 125)
-            //                        .background(Color.lightBlue)
-            //                        .cornerRadius(20)
-            //
-            //
-            //                Spacer()
-            //
-            //                Text("RULE 2: Keep food and liquid out of your recycling")
-            //                        .font(Constants.smallFancyFont)
-            //                        .frame(width: 325,height: 125)
-            //                        .background(Color.lightGreen)
-            //                        .cornerRadius(20)
-            //
-            //
-            //
-            //                Spacer()
-            //
-            //
-            //                Text("RULE 3: No loose plastic bags and no bagged recyclables")
-            //                    .font(Constants.smallFancyFont)
-            //                    .frame(width: 325,height: 125)
-            //                    .background(Color.lightBlue)
-            //                    .cornerRadius(20)
-            //
-            //
-            //                Spacer()
-            //
-            //
-            //                Text("RULE 4: Look for bins with this symbol")
-            //                    .font(Constants.smallFancyFont)
-            //                    .frame(width: 325,height: 125)
-            //                    .background(Color.lightGreen)
-            //                    .cornerRadius(20)
-            //
-            //
-            
-            
+            }
+
         }
     }
 
@@ -118,5 +109,9 @@ struct RecycleView: View {
 struct RecycleView_Previews: PreviewProvider {
     static var previews: some View {
         RecycleView()
+            .environmentObject(Store())
+            .environmentObject(User())
+            .environmentObject(FactsModel())
+        
     }
 }

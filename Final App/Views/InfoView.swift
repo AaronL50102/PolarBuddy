@@ -21,7 +21,8 @@ struct InfoView: View {
                    Spacer()
 
                     Text("Info")
-                        .font(Constants.largeFancyFont)
+                        .font(.custom("Helvetica Neue Thin", size: 45))
+                        .bold()
                         .foregroundColor(Color.blueish)
                    
                     Spacer()
@@ -34,7 +35,8 @@ struct InfoView: View {
                                     .resizable()
                                     .cornerRadius(40)
                                 Text("Facts")
-                                    .font(Constants.largeFancyFont)
+                                    .font(.custom("Helvetica Neue Thin", size: 45))
+                                    .bold()
                                     .foregroundColor(Color.white)
                             }
                         }
@@ -49,7 +51,8 @@ struct InfoView: View {
                                     .resizable()
                                     .cornerRadius(40)
                                 Text("Recycle")
-                                    .font(Constants.largeFancyFont)
+                                    .font(.custom("Helvetica Neue Thin", size: 45))
+                                    .bold()
                                     .foregroundColor(Color.white)
                             }
                         }
