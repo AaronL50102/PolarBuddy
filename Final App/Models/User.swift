@@ -30,12 +30,11 @@ import FirebaseDatabase
     @Published var hasHat: Bool = false
     @Published var hasGlasses: Bool = false
 
-    init(emailAddress: String = "", password: String = "", polarName: String = "") {
+    init(emailAddress: String = "", password: String = "", polarName: String = "", uid: String = "") {
         self.emailAddress = emailAddress
         self.password = password
         
         guard let uid = Auth.auth().currentUser?.uid else {
-            print("failed")
             return
         }
         
@@ -97,11 +96,18 @@ import FirebaseDatabase
     func getUserData() -> Void {
         print("it is being called")
         print(uid)
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        self.uid = uid
+        
         Task {
             print("running it is")
             
-            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
-            self.uid = u.value as? String ?? ""
+//            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
+//            self.uid = u.value as? String ?? ""
             
             guard let n = try? await Database.database().reference().child("user/\(uid)/name").getData() else {return}
             self.name = n.value as? String ?? ""

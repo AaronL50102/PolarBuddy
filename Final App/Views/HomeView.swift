@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 struct HomeView: View {
     @EnvironmentObject var user: User
@@ -38,6 +41,16 @@ struct HomeView: View {
                     }
                     Spacer()
                     Spacer()
+                    
+//                    Button {
+//                        let success = try? Auth.auth().signOut()
+//                        if let _ = success {
+//                            self.user.loggedIn = false
+//                        }
+//                    } label: {
+//                        Text("Log Out")
+//                    }
+                    
                     HStack{
                         Spacer()
                         Spacer()
