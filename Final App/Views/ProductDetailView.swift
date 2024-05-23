@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
+import FirebaseDatabase
 
 struct ProductDetailView: View{
     var product: Product
@@ -45,19 +49,21 @@ struct ProductDetailView: View{
             
             Button {
                 //cart.add(item: product)
-                if product.name == "Scarf" {
+                if product.name == "Scarf" && user.stars >= 1 {
                     user.setHasScarf(bool: true)
                     print("has scarf confirmed \(user.hasScarf)")
+                    user.subtractStars(numStars: 1)
                 }
-                if product.name == "Hat" {
+                if product.name == "Hat" && user.stars >= 3 {
                     user.setHasHat(bool: true)
                     print("has hat confirmed \(user.hasHat)")
+                    user.subtractStars(numStars: 3)
 
                 }
-                if product.name == "Glasses" {
+                if product.name == "Glasses" && user.stars >= 5 {
                     user.setHasGlasses(bool: true)
                     print("has glasses confirmed \(user.hasGlasses)")
-
+                    user.subtractStars(numStars: 5)
                 }
             } label: {
                Text("Buy!")
@@ -67,6 +73,7 @@ struct ProductDetailView: View{
                     .foregroundColor(Color.black)
                     .background(Color.lightGreen)
                     .cornerRadius(20)
+                    .offset(x: -100, y: -30)
             }
 
            
