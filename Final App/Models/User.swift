@@ -29,23 +29,24 @@ import FirebaseDatabase
     @Published var hasScarf: Bool = false
     @Published var hasHat: Bool = false
     @Published var hasGlasses: Bool = false
+
     @Published var points: Int = 0
     @Published var stars: Int = 0
     
     init(emailAddress: String = "", password: String = "", polarName: String = "") {
+
+
+    init(emailAddress: String = "", password: String = "", polarName: String = "", uid: String = "") {
+
         self.emailAddress = emailAddress
         self.password = password
         
         guard let uid = Auth.auth().currentUser?.uid else {
-            print("failed")
             return
         }
-        
         self.uid = uid
-        
         self.loggedIn = false
         self.subscribe = false
-        
     }
     
     func setHasScarf(bool: Bool) -> Void {
@@ -69,7 +70,11 @@ import FirebaseDatabase
         
         // update database
         Database.database().reference().child("user/\(uid)/bottles").setValue(waterBottle)
-
+    }
+    
+    //Temporary test function
+    func getBottle() -> Int {
+        return self.waterBottle
     }
     
     func addCan() -> Void {
@@ -77,7 +82,6 @@ import FirebaseDatabase
         
         // update database
         Database.database().reference().child("user/\(uid)/aluminumCan").setValue(aluminumCan)
-
     }
     
     func addCardboard() -> Void {
@@ -103,11 +107,18 @@ import FirebaseDatabase
     func getUserData() -> Void {
         print("it is being called")
         print(uid)
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        self.uid = uid
+        
         Task {
             print("running it is")
             
-            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
-            self.uid = u.value as? String ?? ""
+//            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
+//            self.uid = u.value as? String ?? ""
             
             guard let n = try? await Database.database().reference().child("user/\(uid)/name").getData() else {return}
             self.name = n.value as? String ?? ""
