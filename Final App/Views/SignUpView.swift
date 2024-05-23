@@ -37,6 +37,7 @@ struct SignUpView: View {
                         if let u = user{
                             self.user.getUserData()
                             self.user.subscribe = true
+                            self.user.loggedIn = true;
                             print("successfully signed up!!")
                             self.user.getUserData()
                         } else if let e = error {
@@ -56,6 +57,8 @@ struct SignUpView: View {
                     Auth.auth().signIn(withEmail: user.emailAddress, password: user.password){user, error in
                         if let u = user{
                             self.user.subscribe = true
+                            self.user.loggedIn = true
+//                            self.user.$uid = user.uid
                             print("successfully logged in!!")
                             self.user.getUserData();
                         } else if let e = error {
