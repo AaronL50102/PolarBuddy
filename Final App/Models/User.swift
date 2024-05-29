@@ -34,6 +34,7 @@ import FirebaseDatabase
     @Published var stars: Int = 0
     
     init(emailAddress: String = "", password: String = "", polarName: String = "") {
+    }
 
 
     init(emailAddress: String = "", password: String = "", polarName: String = "", uid: String = "") {
