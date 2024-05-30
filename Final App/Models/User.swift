@@ -120,6 +120,7 @@ import FirebaseDatabase
             self.points = points % 100
             self.stars += 1
             
+            // update database
             Database.database().reference().child("user/\(uid)/points").setValue(points)
             Database.database().reference().child("user/\(uid)/stars").setValue(stars)
         }
