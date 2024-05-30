@@ -22,34 +22,40 @@ struct InputView: View {
     @State var photo: UIImage?
     @State var text: String = ""
     @State var showImage: Bool = true
+    @State var showPoints: Bool = false
     
     var body: some View {
         ZStack{
             if var selectedImage{
                 if showImage{
-                    ZStack{
+                    VStack{
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
                         VStack{
-                            Text("\(identifyImage(image: selectedImage, user2: user)) added!")
-                                .fontWeight(.bold)
-                                .font(.system(size: 50))
-                                .foregroundColor(Color.red)
                             Button {
                                 addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
                                 showImage = false
+                                showPoints = true
                             } label: {
                                 Text("Correct?")
                             }
                         }
                     }
                 }
+                if showPoints{
+                    Text("\(identifyImage(image: selectedImage, user2: user)) added!")
+                        .fontWeight(.bold)
+                        .font(.system(size: 50))
+                        .foregroundColor(Color.red)
+                        .transition(.slide)
+                }
             }
             Button{
                 self.showCamera.toggle()
                 photo = self.selectedImage ?? UIImage()
                 showImage = true
+                showPoints = false
             } label: {
                 Text("Open Camera")
             }
