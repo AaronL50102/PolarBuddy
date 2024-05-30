@@ -20,80 +20,37 @@ struct InputView: View {
     @State private var showCamera = false
     @State private var selectedImage: UIImage?
     @State var photo: UIImage?
-    
     @State var text: String = ""
+    @State var showImage: Bool = false
     
     var body: some View {
-        /*VStack {
-            Spacer()
-            
-            Button {
-                user.addBottle()
-                print("\(user.waterBottle)")
-            } label: {
-                Text("Add Water Bottle")
-            }
-            
-            Spacer()
-            
-            Button {
-                user.addCan()
-                print("\(user.aluminumCan)")
-            } label: {
-                Text("Add Aluminum Can")
-            }
-            
-            Spacer()
-            
-            Button {
-                user.addCardboard()
-                print("\(user.cardboard)")
-            } label: {
-                Text("Add Cardboard")
-            }
-            
-            Spacer()
-            
-            Button {
-                user.addBag()
-                print("\(user.groceryBag)")
-            } label: {
-                Text("Add Grocery Bag")
-            }
-            
-            Spacer()
-        }*/
         ZStack{
-            VStack{
-                if let selectedImage{
-                    ZStack{
-                        Image(uiImage: selectedImage)
-                            .resizable()
-                            .scaledToFit()
-                        HStack{
-                            Text(identifyImage(image: selectedImage, user2: user))
-                                .fontWeight(.bold)
-                                .font(.system(size: 50))
-                                .foregroundColor(Color.red)
-                            Button {
-                                addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
-                            } label: {
-                                Text("Correct?")
-                            }
-
-                            
+            if var selectedImage{
+                ZStack{
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .scaledToFit()
+                    VStack{
+                        Text(identifyImage(image: selectedImage, user2: user))
+                            .fontWeight(.bold)
+                            .font(.system(size: 50))
+                            .foregroundColor(Color.red)
+                        Button {
+                            addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
+                        } label: {
+                            Text("Correct?")
                         }
                     }
                 }
-                Button{
-                    self.showCamera.toggle()
-                    photo = self.selectedImage ?? UIImage()
-                } label: {
-                    Text("Open Camera")
-                }
-                .fullScreenCover(isPresented: self.$showCamera) {
-                    accessCameraView(selectedImage: self.$selectedImage)
-                }
+            }
+            Button{
+                self.showCamera.toggle()
+                photo = self.selectedImage ?? UIImage()
+            } label: {
+                Text("Open Camera")
+            }
+            .fullScreenCover(isPresented: self.$showCamera) {
+                accessCameraView(selectedImage: self.$selectedImage)
             }
         }
     }
@@ -117,7 +74,7 @@ struct InputView: View {
     return classify
 }
 
-@MainActor func addPoints(type: String, user2: User){
+@MainActor func addPoints(type: String, user2: User) {
     
     let user: User = user2
     
