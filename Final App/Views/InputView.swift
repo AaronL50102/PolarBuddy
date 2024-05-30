@@ -80,6 +80,7 @@ struct InputView: View {
     
     if type == "water bottle" || type == "water jug" {
         user.addBottle()
+        user.updateStars()
     }
     print("Amount of bottle recycled: \(user.getBottle())")
 }
