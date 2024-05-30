@@ -23,14 +23,15 @@ struct ReportView: View {
                 .ignoresSafeArea()
             
             VStack {
-//                Button {
-//                    guard let uid = Auth.auth().currentUser?.uid else {return}
-//
-//                    user.addBottle()
-//                    print("\(user.waterBottle)")
-//                } label: {
-//                    Text("Add Water Bottle")
-//                }
+                Button {
+                    guard let uid = Auth.auth().currentUser?.uid else {return}
+
+                    user.addBottle()
+                    user.updateStars()
+                    print("\(user.waterBottle)")
+                } label: {
+                    Text("Add Water Bottle")
+                }
                 
 //                TextField("name", text: $user.name).onSubmit {
 //                    guard let uid = Auth.auth().currentUser?.uid else {return}
