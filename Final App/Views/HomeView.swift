@@ -41,39 +41,12 @@ struct HomeView: View {
                             .background(Color.lightBlue)
                             .cornerRadius(20)
                             .padding()
-                            
                             Spacer()
                         }
                         Spacer()
-//                        ZStack{
-//                            Rectangle()
-//                                .frame(width: 90, height: 55)
-//                                .foregroundColor(.lightBlue)
-//                                .cornerRadius(27)
-//                                .padding()
-//                            Image("starCart")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .scaleEffect(0.23)
-//                                .offset(x: 14, y: 0)
-//                            Text("\(user.stars)")
-//                                .font(.custom("Helvetica Neue Thin", size: 26))
-//                                .offset(x: -18, y: 0)
-//                        }
-                        
                     }
                     Spacer()
                     Spacer()
-                    
-//                    Button {
-//                        let success = try? Auth.auth().signOut()
-//                        if let _ = success {
-//                            self.user.loggedIn = false
-//                        }
-//                    } label: {
-//                        Text("Log Out")
-//                    }
-                    
                     HStack{
                         Spacer()
                         Spacer()
@@ -109,7 +82,6 @@ struct HomeView: View {
                             }
                             
                         }
-                           
                         ZStack {
                             Rectangle()
                                 .frame(width: 35, height: 320)
@@ -131,7 +103,6 @@ struct HomeView: View {
                                 .offset(x: 0, y: -200)
                         }
                     }
-
                     Spacer()
                     TextField("Name", text: $user.name)
                         .padding()
@@ -140,9 +111,7 @@ struct HomeView: View {
                         .foregroundColor(.blueish)
                     Spacer()
                     Spacer()
-                    
                 }
-
             }
         }
     }

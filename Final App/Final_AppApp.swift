@@ -16,7 +16,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     return true
   }
 }
-
 @main
 struct Final_AppApp: App {
     @StateObject var cart = Cart()
