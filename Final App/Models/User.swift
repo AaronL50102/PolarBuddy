@@ -34,6 +34,7 @@ import FirebaseDatabase
     @Published var stars: Int = 0
     
     init(emailAddress: String = "", password: String = "", polarName: String = "") {
+    }
 
 
     init(emailAddress: String = "", password: String = "", polarName: String = "", uid: String = "") {
@@ -67,9 +68,12 @@ import FirebaseDatabase
 
     func addBottle() -> Void {
         self.waterBottle += 1
+        self.points += 15
         
         // update database
         Database.database().reference().child("user/\(uid)/bottles").setValue(waterBottle)
+        Database.database().reference().child("user/\(uid)/points").setValue(points)
+
     }
     
     //Temporary test function
@@ -79,29 +83,47 @@ import FirebaseDatabase
     
     func addCan() -> Void {
         self.aluminumCan += 1
+        self.points += 10
         
         // update database
         Database.database().reference().child("user/\(uid)/aluminumCan").setValue(aluminumCan)
+        Database.database().reference().child("user/\(uid)/points").setValue(points)
     }
     
     func addCardboard() -> Void {
         self.cardboard += 1
+        self.points += 20
         
         // update database
         Database.database().reference().child("user/\(uid)/cardboard").setValue(cardboard)
+        Database.database().reference().child("user/\(uid)/points").setValue(points)
 
     }
     
     func addBag() -> Void {
         self.groceryBag += 1
+        self.points += 5
         
         // update database
         Database.database().reference().child("user/\(uid)/groceryBag").setValue(groceryBag)
-
+        Database.database().reference().child("user/\(uid)/points").setValue(points)
     }
     
     func subtractStars(numStars: Int) -> Void {
         self.stars -= numStars
+        Database.database().reference().child("user/\(uid)/stars").setValue(stars)
+
+    }
+    
+    func updateStars() -> Void {
+        if points >= 100 {
+            self.points = points % 100
+            self.stars += 1
+            
+            // update database
+            Database.database().reference().child("user/\(uid)/points").setValue(points)
+            Database.database().reference().child("user/\(uid)/stars").setValue(stars)
+        }
     }
     
     func getUserData() -> Void {

@@ -26,11 +26,11 @@ struct FactsView: View {
                     Text("\(v.year)")
                         .font(.custom("Helvetica Neue Thin", size: 40))
                         .bold()
-                        .foregroundColor(Color.darkGreen)
+                        .foregroundColor(Color.lightMediumBlue)
                     Spacer()
                     Text("\(v.trend) ppm ")
                         .font(.custom("Helvetica Neue Thin", size: 30))
-                        .foregroundColor(Color.blueish)
+                        .foregroundColor(Color.mediumBlue)
                         .cornerRadius(10)
                     Spacer()
                 }
