@@ -68,7 +68,7 @@ import FirebaseDatabase
 
     func addBottle() -> Void {
         self.waterBottle += 1
-        self.points += 100
+        self.points += 15
         
         // update database
         Database.database().reference().child("user/\(uid)/bottles").setValue(waterBottle)

@@ -48,7 +48,6 @@ struct ProductDetailView: View{
             }.padding(10)
             
             Button {
-                //cart.add(item: product)
                 if product.name == "Scarf" && user.stars >= 1 {
                     user.setHasScarf(bool: true)
                     print("has scarf confirmed \(user.hasScarf)")
@@ -65,6 +64,7 @@ struct ProductDetailView: View{
                     print("has glasses confirmed \(user.hasGlasses)")
                     user.subtractStars(numStars: 5)
                 }
+                print("button worked")
             } label: {
                Text("Buy!")
                     .font(.custom("Helvetica Neue Thin", size: 30))
@@ -73,7 +73,7 @@ struct ProductDetailView: View{
                     .foregroundColor(Color.black)
                     .background(Color.lightGreen)
                     .cornerRadius(20)
-                    .offset(x: -100, y: -30)
+//                    .offset(x: -100, y: -30)
             }
 
            
