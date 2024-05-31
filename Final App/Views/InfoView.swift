@@ -23,7 +23,7 @@ struct InfoView: View {
                     Text("Info")
                         .font(.custom("Helvetica Neue Thin", size: 45))
                         .bold()
-                        .foregroundColor(Color.blueish)
+                        .foregroundColor(Color.black)
                    
                     Spacer()
                     VStack{
@@ -31,13 +31,10 @@ struct InfoView: View {
                             FactsView()
                         } label: {
                             ZStack{
-                                Image("tree")
+                                Image("emission")
                                     .resizable()
                                     .cornerRadius(40)
-                                Text("Facts")
-                                    .font(.custom("Helvetica Neue Thin", size: 45))
-                                    .bold()
-                                    .foregroundColor(Color.white)
+
                             }
                         }
                         Spacer()
@@ -47,13 +44,14 @@ struct InfoView: View {
                             RecycleView()
                         } label: {
                             ZStack{
-                                Image("ocean")
+                                Image("recycle")
                                     .resizable()
                                     .cornerRadius(40)
                                 Text("Recycle")
-                                    .font(.custom("Helvetica Neue Thin", size: 45))
+                                    .font(.custom("Helvetica Neue Thin", size: 25))
                                     .bold()
                                     .foregroundColor(Color.white)
+                                    .offset(x:2, y:-2)
                             }
                         }
                         
