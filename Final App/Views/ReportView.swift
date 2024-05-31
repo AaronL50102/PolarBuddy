@@ -22,89 +22,114 @@ struct ReportView: View {
                 .foregroundColor(Color.white)
                 .ignoresSafeArea()
             
-            VStack {
-//                Button {
-//                    guard let uid = Auth.auth().currentUser?.uid else {return}
-//
-//                    user.addBottle()
-//                    print("\(user.waterBottle)")
-//                } label: {
-//                    Text("Add Water Bottle")
-//                }
-                
-//                TextField("name", text: $user.name).onSubmit {
-//                    guard let uid = Auth.auth().currentUser?.uid else {return}
-//
-//                    Database.database().reference().child("users/\(user.uid)/name").setValue(user.name)
-//                }
-                
-//                Text("\(user.name)")
-                
-                Text("By recycling you have saved ... ")
-                    .font(Constants.largeFancyFont)
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.blueish)
-                
-                VStack {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color.lightBlue)
-                            .cornerRadius(20)
-                            .frame(width: 325, height: 125, alignment: .leading)
-                        VStack {
-//                            Image("co2")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-                            Text("\(Double(user.waterBottle) * 0.838)")
-                                .font(Constants.largeFancyFont)
-                                .foregroundColor(Color.black)
-                            Text("Kilograms of Carbon Emissions")
-                                .font(Constants.smallFancyFont)
-                                .foregroundColor(Color.black)
 
-//                            Database.database().reference().child("users/\(user.uid)/CO2 Emissions").setValue(Double(user.waterBottle) * 0.838 + Double(user.aluminumCan) * 0.0968 + Double(user.cardboard) * 1.814368 + Double(user.groceryBag) * 1.58)
-                        }
-                    }.padding()
+                ZStack{
+                    VStack{
+                        Text("By recycling you")
+                            .font(.custom("Helvetica Neue Thin", size: 40))
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color.black)
+                            .offset(x:-18, y:-270)
+                        Text("have saved ")
+                            .font(.custom("Helvetica Neue Thin", size: 40))
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color.black)
+                            .offset(x:-60, y:-255)
+                    }
+                        Image("kids")
+                            .scaleEffect(0.20)
+                            .offset(x:110, y:-210)
+                        Image("trash")
+                        .scaleEffect(0.35)
+                        .offset(x:-65, y:-185)
                     
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color.lightGreen)
-                            .cornerRadius(20)
-                            .frame(width: 325, height: 125, alignment: .leading)
-                        VStack {
-//                            Image("co2")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-                            Text("\(Double(user.waterBottle) * 0.05 + Double(user.aluminumCan) * 0.01 + Double(user.cardboard) * 0.02 + Double(user.groceryBag) * 0.01)")
-                                .font(Constants.largeFancyFont)
-                                .foregroundColor(Color.black)
-                            Text("US Dollars")
-                                .font(Constants.smallFancyFont)
-                                .foregroundColor(Color.black)
-                            
-                            
-                        }
-                    }.padding()
+         
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color.mediumDarkBlue)
+                                .cornerRadius(20)
+                                .frame(width: 325, height: 125, alignment: .leading)
+                                .offset(x:0, y:-60)
+                            VStack {
+                                //                            Image("co2")
+                                //                                .resizable()
+                                //                                .aspectRatio(contentMode: .fit)
+                                Text("\(Double(user.waterBottle) * 0.838)")
+                                    .font(.custom("Helvetica Neue Thin", size: 40))
+                                    .bold()
+                                    .foregroundColor(Color.white)
+                                    .offset(x:0, y:-60)
+                                Text("Kilograms of Carbon Emissions")
+                                    .font(.custom("Helvetica Neue Thin", size: 23))
+                                    .foregroundColor(Color.white)
+                                    .offset(x:0, y:-60)
+                                
+                                //                            Database.database().reference().child("users/\(user.uid)/CO2 Emissions").setValue(Double(user.waterBottle) * 0.838 + Double(user.aluminumCan) * 0.0968 + Double(user.cardboard) * 1.814368 + Double(user.groceryBag) * 1.58)
+                            }
+                        }.padding()
+                        
                     
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color.lightBlue)
-                            .cornerRadius(20)
-                            .frame(width: 325, height: 125, alignment: .leading)
-                        VStack {
-//                            Image("co2")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-                            Text("\(Double(user.waterBottle) * 8.5 + Double(user.groceryBag) * 14.67)")
-                                .font(Constants.largeFancyFont)
-                                .foregroundColor(Color.black)
-                            Text("Grams of Plastic Waste")
-                                .font(Constants.smallFancyFont)
-                                .foregroundColor(Color.black)
-                        }
-                    }.padding()
+                    
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(Color.mediumBlue)
+                                    .cornerRadius(20)
+                                    .frame(width: 325, height: 125, alignment: .leading)
+                                    .offset(x:0, y:95)
+                                VStack {
+                                    //                            Image("co2")
+                                    //                                .resizable()
+                                    //                                .aspectRatio(contentMode: .fit)
+                                    Text("\(Double(user.waterBottle) * 0.05 + Double(user.aluminumCan) * 0.01 + Double(user.cardboard) * 0.02 + Double(user.groceryBag) * 0.01)")
+                                        .font(.custom("Helvetica Neue Thin", size: 40))
+                                        .bold()
+                                        .foregroundColor(Color.white)
+                                        .offset(x:0, y:90)
+                                    
+                                    Text("US Dollars")
+                                        .font(.custom("Helvetica Neue Thin", size: 23))
+                                        .foregroundColor(Color.white)
+                                        .offset(x:0, y:95)
+                                }
+                            }.padding()
+                           
+//                    Image("bottle")
+//                        .scaleEffect(0.22)
+//                        .offset(x:-116, y:23)
+//
+                            
+                        
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(Color.lightMediumBlue)
+                                .cornerRadius(20)
+                                .frame(width: 325, height: 125, alignment: .leading)
+                                .offset(x:0, y:255)
+                            VStack {
+                                //                            Image("co2")
+                                //                                .resizable()
+                                //                                .aspectRatio(contentMode: .fit)
+                                Text("\(Double(user.waterBottle) * 8.5 + Double(user.groceryBag) * 14.67)")
+                                    .font(.custom("Helvetica Neue Thin", size: 40))
+                                    .bold()
+                                    .foregroundColor(Color.white)
+                                    .offset(x:0, y:255)
+                                
+                                Text("Grams of Plastic Waste")
+                                    .font(.custom("Helvetica Neue Thin", size: 23))
+                                    .foregroundColor(Color.white)
+                                    .offset(x:0, y:255)
+                            }
+                        }.padding()
+                   
+//                    Image("truck")
+//                        .scaleEffect(0.18)
+//                        .offset(x:120, y:170)
+                       
                 }
-            }
+            
 //            .sheet(isPresented: $showSheet, onDismiss: {
 //                guard let uid = Auth.auth().currentUser?.uid else {return}
 //
