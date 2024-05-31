@@ -85,7 +85,7 @@ struct InputView: View {
 }
 
 @MainActor func addPoints(type: String, user2: User) {
-    
+    //266.48
     let user: User = user2
     
     if type == "water bottle" || type == "water jug" {
