@@ -20,77 +20,55 @@ struct InputView: View {
     @State private var showCamera = false
     @State private var selectedImage: UIImage?
     @State var photo: UIImage?
+    @State var text: String = ""
+    @State var showImage: Bool = true
+    @State var showPoints: Bool = false
     
     var body: some View {
-        /*VStack {
-            Spacer()
-            
-            Button {
-                user.addBottle()
-                print("\(user.waterBottle)")
-            } label: {
-                Text("Add Water Bottle")
-            }
-            
-            Spacer()
-            
-            Button {
-                user.addCan()
-                print("\(user.aluminumCan)")
-            } label: {
-                Text("Add Aluminum Can")
-            }
-            
-            Spacer()
-            
-            Button {
-                user.addCardboard()
-                print("\(user.cardboard)")
-            } label: {
-                Text("Add Cardboard")
-            }
-            
-            Spacer()
-            
-            Button {
-                user.addBag()
-                print("\(user.groceryBag)")
-            } label: {
-                Text("Add Grocery Bag")
-            }
-            
-            Spacer()
-        }*/
         ZStack{
-            VStack{
-                if let selectedImage{
-                    ZStack{
+            if var selectedImage{
+                if showImage{
+                    VStack{
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
-                        Text(identifyImage(image: selectedImage))
-                            .fontWeight(.bold)
-                            .font(.system(size: 50))
-                            .foregroundColor(Color.red)
+                        VStack{
+                            Button {
+                                addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
+                                showImage = false
+                                showPoints = true
+                            } label: {
+                                Text("Correct?")
+                            }
+                        }
                     }
                 }
-                
-                Button{
-                    self.showCamera.toggle()
-                    photo = self.selectedImage ?? UIImage()
-                } label: {
-                    Text("Open Camera")
+                if showPoints{
+                    Text("\(identifyImage(image: selectedImage, user2: user)) added!")
+                        .fontWeight(.bold)
+                        .font(.system(size: 50))
+                        .foregroundColor(Color.red)
+                        .transition(.slide)
                 }
-                .fullScreenCover(isPresented: self.$showCamera) {
-                    accessCameraView(selectedImage: self.$selectedImage)
-                }
+            }
+            Button{
+                self.showCamera.toggle()
+                photo = self.selectedImage ?? UIImage()
+                showImage = true
+                showPoints = false
+            } label: {
+                Text("Open Camera")
+            }
+            .fullScreenCover(isPresented: self.$showCamera) {
+                accessCameraView(selectedImage: self.$selectedImage)
             }
         }
     }
 }
 
-func identifyImage(image: UIImage) -> String /*[String : Double]*/{
-    var classify: String
+@MainActor func identifyImage(image: UIImage, user2: User) -> String /*[String : Double]*/{
+    var classify: String = ""
+    let user: User = user2
 
     do{
         let config = MLModelConfiguration()
@@ -104,6 +82,17 @@ func identifyImage(image: UIImage) -> String /*[String : Double]*/{
         classify = "Unknown"
     }
     return classify
+}
+
+@MainActor func addPoints(type: String, user2: User) {
+    //266.48
+    let user: User = user2
+    
+    if type == "water bottle" || type == "water jug" {
+        user.addBottle()
+        user.updateStars()
+    }
+    print("Amount of bottle recycled: \(user.getBottle())")
 }
 
 func convertImage(image: UIImage) -> CVPixelBuffer? {

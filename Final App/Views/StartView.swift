@@ -13,7 +13,7 @@ struct StartView: View {
 
     var body: some View {
         VStack {
-            if user.subscribe {
+            if user.loggedIn {
                 ContentView()
             } else {
                 SignUpView()
