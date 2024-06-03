@@ -35,7 +35,7 @@ struct RecycleView: View {
                         .font(.custom("Helvetica Neue Thin", size: 30))
                         .bold()
                         .foregroundColor(Color.white)
-                    
+                        .frame(width: 350,height: 100)
                         
                     Text("Only put recyclable materials – paper, cardboard, metal cans, plastic bottles and jugs – in your recycling cart.")
                         .font(.custom("Helvetica Neue Thin", size: 20))
