@@ -52,19 +52,20 @@ struct ProductDetailView: View{
                     user.setHasScarf(bool: true)
                     print("has scarf confirmed \(user.hasScarf)")
                     user.subtractStars(numStars: 1)
+                    user.updateScarf()
                 }
                 if product.name == "Hat" && user.stars >= 3 {
                     user.setHasHat(bool: true)
                     print("has hat confirmed \(user.hasHat)")
                     user.subtractStars(numStars: 3)
-
+                    user.updateHat()
                 }
                 if product.name == "Glasses" && user.stars >= 5 {
                     user.setHasGlasses(bool: true)
                     print("has glasses confirmed \(user.hasGlasses)")
                     user.subtractStars(numStars: 5)
+                    user.updateGlasses()
                 }
-                print("button worked")
             } label: {
                Text("Buy!")
                     .font(.custom("Helvetica Neue Thin", size: 30))

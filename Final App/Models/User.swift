@@ -29,7 +29,7 @@ import FirebaseDatabase
     @Published var hasScarf: Bool = false
     @Published var hasHat: Bool = false
     @Published var hasGlasses: Bool = false
-
+    @Published var hasBag: Bool = false
     @Published var points: Int = 0
     @Published var stars: Int = 0
     
@@ -126,6 +126,22 @@ import FirebaseDatabase
         }
     }
     
+    func updateHat() -> Void {
+        Database.database().reference().child("user/\(uid)/hasHat").setValue(hasHat)
+    }
+    
+    func updateScarf() -> Void {
+        Database.database().reference().child("user/\(uid)/hasScarf").setValue(hasScarf)
+    }
+    
+    func updateGlasses() -> Void {
+        Database.database().reference().child("user/\(uid)/hasGlasses").setValue(hasGlasses)
+    }
+    
+    func updateBag() -> Void {
+        Database.database().reference().child("user/\(uid)/hasBag").setValue(hasGlasses)
+    }
+    
     func getUserData() -> Void {
         print("it is being called")
         print(uid)
@@ -180,7 +196,6 @@ import FirebaseDatabase
             
             guard let s = try? await Database.database().reference().child("user/\(uid)/stars").getData() else {return}
             self.stars = s.value as? Int ?? 0
-
         }
     }
 }
