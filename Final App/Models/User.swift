@@ -22,10 +22,10 @@ import FirebaseDatabase
     @Published var subscribe: Bool = false
     @Published var uid: String = ""
     @Published var loggedIn: Bool = false
-    @Published var waterBottle: Int = 0
-    @Published var aluminumCan: Int = 0
-    @Published var cardboard: Int = 0
-    @Published var groceryBag: Int = 0
+    @Published var waterBottle: Int = 100
+    @Published var aluminumCan: Int = 200
+    @Published var cardboard: Int = 300
+    @Published var groceryBag: Int = 400
     @Published var hasScarf: Bool = false
     @Published var hasHat: Bool = false
     @Published var hasGlasses: Bool = false
@@ -61,6 +61,12 @@ import FirebaseDatabase
     func setHasGlasses(bool: Bool) -> Void {
         hasGlasses = bool
     }
+    
+    func setHasBag(bool: Bool) -> Void {
+
+            hasBag = bool
+
+        }
     
     func co2Emissions() -> Double {
         return Double(self.waterBottle) * 0.84 + Double(self.aluminumCan) * 0.097 + Double(self.cardboard) * 1.81 + Double(self.groceryBag) * 1.58
@@ -190,6 +196,9 @@ import FirebaseDatabase
             
             guard let g = try? await Database.database().reference().child("user/\(uid)/hasGlasses").getData() else {return}
             self.hasGlasses = g.value as? Bool ?? false
+            
+            guard let g = try? await Database.database().reference().child("user/\(uid)/hasBag").getData() else {return}
+            self.hasBag = g.value as? Bool ?? false
             
             guard let p = try? await Database.database().reference().child("user/\(uid)/points").getData() else {return}
             self.points = p.value as? Int ?? 0

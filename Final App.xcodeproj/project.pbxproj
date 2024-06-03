@@ -436,7 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Final App/Preview Content\"";
-				DEVELOPMENT_TEAM = J2P3933SH5;
+				DEVELOPMENT_TEAM = 2DH7G9PN4H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Experiment camera use";
@@ -471,7 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Final App/Preview Content\"";
-				DEVELOPMENT_TEAM = J2P3933SH5;
+				DEVELOPMENT_TEAM = 2DH7G9PN4H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Experiment camera use";

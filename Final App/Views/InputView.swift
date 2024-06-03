@@ -21,46 +21,75 @@ struct InputView: View {
     @State private var selectedImage: UIImage?
     @State var photo: UIImage?
     @State var text: String = ""
-    @State var showImage: Bool = true
+    @State var showImage: Bool = false
     @State var showPoints: Bool = false
+    @State var showButton: Bool = true
     
     var body: some View {
         ZStack{
-            if var selectedImage{
+            if let selectedImage{
                 if showImage{
                     VStack{
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
-                        VStack{
-                            Button {
-                                addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
-                                showImage = false
-                                showPoints = true
-                            } label: {
-                                Text("Correct?")
-                            }
+                        Text("\(identifyImage(image: selectedImage, user2: user))")
+                            .font(.custom("Helvetica Neue Thin", size: 40))
+                            .bold()
+                            .foregroundColor(Color.lightMediumBlue)
+                        Button {
+                            addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
+                            showImage.toggle() //false
+                            showPoints.toggle() //true
+                        } label: {
+                            Text("Correct?")
+                                .font(.custom("Helvetica Neue Thin", size: 30))
+                                .bold()
+                                .foregroundColor(Color.lightMediumBlue)
+                        }
+                    }
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now()){
+                            showButton.toggle()
                         }
                     }
                 }
                 if showPoints{
                     Text("\(identifyImage(image: selectedImage, user2: user)) added!")
                         .fontWeight(.bold)
-                        .font(.system(size: 50))
+                        .font(.system(size: 30))
                         .foregroundColor(Color.red)
                         .transition(.slide)
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                showPoints.toggle()//false
+                                showButton.toggle()//true
+                            }
+                        }
                 }
             }
-            Button{
-                self.showCamera.toggle()
-                photo = self.selectedImage ?? UIImage()
-                showImage = true
-                showPoints = false
-            } label: {
-                Text("Open Camera")
-            }
-            .fullScreenCover(isPresented: self.$showCamera) {
-                accessCameraView(selectedImage: self.$selectedImage)
+            if showButton{
+                VStack{
+                    Spacer()
+                    Text("Recycled? Take a picture!")
+                        .font(.custom("Helvetica Neue Thin", size: 25))
+                        .bold()
+                        .foregroundColor(Color.lightMediumBlue)
+                    Button{
+                        self.showCamera.toggle()
+                        photo = self.selectedImage ?? UIImage()
+                        showImage.toggle()//true
+                    } label: {
+                        Image("camera")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150, height: 150)
+                    }
+                    .fullScreenCover(isPresented: self.$showCamera) {
+                        accessCameraView(selectedImage: self.$selectedImage)
+                    }
+                }
+                .padding(.bottom, 300)
             }
         }
     }

@@ -20,7 +20,7 @@ struct SignUpView: View {
             VStack{
                 Spacer()
                 
-                Image("logo")
+                Image("512")
                     .resizable()
                     .aspectRatio(contentMode: .fit
                     )
@@ -49,7 +49,8 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 100)
                         .padding(.vertical, 10)
-                        .background(Color.blueish)
+                        .background(Color.blue)
+//                        .background(Color.blueish)
                         .cornerRadius(20)
                 }
                 
@@ -70,7 +71,8 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 100)
                         .padding(.vertical, 10)
-                        .background(Color.blueish)
+                        .background(Color.blue)
+//                        .background(Color.blueish)
                         .cornerRadius(20)
                 }
 
