@@ -87,6 +87,7 @@ struct InputView: View {
                     }
                     .fullScreenCover(isPresented: self.$showCamera) {
                         accessCameraView(selectedImage: self.$selectedImage)
+                            .edgesIgnoringSafeArea(.all)
                     }
                 }
                 .padding(.bottom, 300)
