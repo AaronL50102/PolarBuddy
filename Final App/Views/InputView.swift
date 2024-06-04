@@ -59,6 +59,7 @@ struct InputView: View {
                         Image("star")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
+                            .frame(width: 100)
                         Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? 5 : 0)")
                             .fontWeight(.bold)
                             .font(.system(size: 30))

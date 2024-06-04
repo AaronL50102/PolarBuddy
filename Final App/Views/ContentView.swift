@@ -23,7 +23,7 @@ struct ContentView: View {
                 HomeView()
             }
             else if viewState == .info {
-                InfoView()
+                ChallengeView()
             }
             else if viewState == .input{
                 InputView()
