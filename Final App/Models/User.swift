@@ -22,10 +22,10 @@ import FirebaseDatabase
     @Published var subscribe: Bool = false
     @Published var uid: String = ""
     @Published var loggedIn: Bool = false
-    @Published var waterBottle: Int = 100
-    @Published var aluminumCan: Int = 200
-    @Published var cardboard: Int = 300
-    @Published var groceryBag: Int = 400
+    @Published var waterBottle: Int = 79
+    @Published var aluminumCan: Int = 68
+    @Published var cardboard: Int = 57
+    @Published var groceryBag: Int = 46
     @Published var hasScarf: Bool = false
     @Published var hasHat: Bool = false
     @Published var hasGlasses: Bool = false
@@ -169,6 +169,10 @@ import FirebaseDatabase
             points += 100
             updateStars()
         }
+    }
+    
+    func totalRecycled() -> Int {
+        return waterBottle + aluminumCan + cardboard + groceryBag
     }
     
     func getUserData() -> Void {

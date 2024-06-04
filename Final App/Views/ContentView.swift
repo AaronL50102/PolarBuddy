@@ -33,17 +33,16 @@ struct ContentView: View {
             }
             Spacer()
             ZStack{
-//                Circle()
-//                    .frame(width: 90, height: 90)
-//                    .foregroundColor(Color.mediumBlue)
                 ExtractedView()
                 HStack {
                     Button {
                         viewState = .info
                     } label: {
                         VStack{
-                            Image(systemName: "pencil")
-                            Text("Info")
+                            Image(systemName: "book")
+                                .scaleEffect(2)
+                            Text("Task")
+                                .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
                     }
@@ -53,7 +52,9 @@ struct ContentView: View {
                     } label: {
                         VStack{
                             Image(systemName: "house")
+                                .scaleEffect(2)
                             Text("Home")
+                                .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
                     }
@@ -63,7 +64,9 @@ struct ContentView: View {
                     } label: {
                         VStack{
                             Image(systemName: "camera")
+                                .scaleEffect(2)
                             Text("Input")
+                                .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
                     }
@@ -72,12 +75,14 @@ struct ContentView: View {
                         viewState = .report
                     } label: {
                         VStack{
-                            Image(systemName: "person")
-                            Text("Report")
+                            Image(systemName: "pencil")
+                                .scaleEffect(2)
+                            Text("Info")
+                                .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
                     }
-                }.padding([.leading, .trailing, .top], 20)
+                }.padding([.leading, .trailing], 40)
             }
         }
         .padding()
@@ -98,27 +103,35 @@ struct ExtractedView: View {
     var body: some View {
         Rectangle()
             .frame(width: 250, height: 40)
-            .foregroundColor(Color.mediumBlue)
+            .foregroundColor(Color.lightMediumBlue)
+            .offset(x: -90, y: -27)
+        Rectangle()
+            .frame(width: 250, height: 40)
+            .foregroundColor(Color.lightMediumBlue)
+            .offset(x: 90, y: -27)
+        Rectangle()
+            .frame(width: 250, height: 40)
+            .foregroundColor(Color.lightMediumBlue)
             .offset(x: -90, y: -6)
         Rectangle()
             .frame(width: 250, height: 40)
-            .foregroundColor(Color.mediumBlue)
+            .foregroundColor(Color.lightMediumBlue)
             .offset(x: 90, y: -6)
         Rectangle()
             .frame(width: 250, height: 40)
-            .foregroundColor(Color.mediumBlue)
+            .foregroundColor(Color.lightMediumBlue)
             .offset(x: -90, y: 34)
         Rectangle()
             .frame(width: 250, height: 40)
-            .foregroundColor(Color.mediumBlue)
+            .foregroundColor(Color.lightMediumBlue)
             .offset(x: 90, y: 34)
         Rectangle()
             .frame(width: 250, height: 40)
-            .foregroundColor(Color.mediumBlue)
+            .foregroundColor(Color.lightMediumBlue)
             .offset(x: -90, y: 74)
         Rectangle()
             .frame(width: 250, height: 40)
-            .foregroundColor(Color.mediumBlue)
+            .foregroundColor(Color.lightMediumBlue)
             .offset(x: 90, y: 74)
     }
 }

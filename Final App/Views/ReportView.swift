@@ -18,15 +18,16 @@ struct ReportView: View {
     @State var showSheet = false
     
     var body: some View {
+        
         NavigationView{
             ZStack{
                 Image("blueBackground")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .edgesIgnoringSafeArea(.all)
-                    .scaleEffect(1.3)
+                    .scaleEffect(1.5)
                     .opacity(0.2)
-                ScrollView{
+                ScrollView(.vertical, showsIndicators: false){
                     VStack{
                         ZStack {
                             //                    Rectangle()
@@ -49,7 +50,7 @@ struct ReportView: View {
                                                 .foregroundColor(Color.black)
                 //                                .offset(x:-60, y:-255)
                                             Spacer()
-                                        }.padding(.leading, 40)
+                                        }.padding(.leading, 80)
                                         Spacer()
                                     }
                                     .padding(.top, 20)
@@ -252,6 +253,7 @@ struct ReportView: View {
                         }
                     }
                 }
+                .frame(width: 500)
             }
         }
     }

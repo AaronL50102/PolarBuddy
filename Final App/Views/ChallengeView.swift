@@ -15,6 +15,7 @@ struct ChallengeView: View {
             Image("blueBackground2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
+                .ignoresSafeArea()
                 .edgesIgnoringSafeArea(.all)
                 .scaleEffect(1.3)
                 .opacity(0.4)
@@ -28,16 +29,18 @@ struct ChallengeView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 60)
                         .padding(.top, -10)
-                    Spacer()
                 }
-                .padding(.leading, 40)
                 .padding(.top, 30)
                 Spacer()
                 Spacer()
-                ScrollView {
+                ScrollView (.vertical, showsIndicators: false){
                     VStack{
                         ZStack{
                             Rectangle()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.black, lineWidth: 2)
+                                )
                                 .frame(width: 350, height: 150)
                                 .cornerRadius(25)
                                 .foregroundColor(Color.lightBlue)
@@ -49,12 +52,20 @@ struct ChallengeView: View {
                                         .padding(.horizontal, 10)
                                         .padding(.vertical, 15)
                                     HStack{
-                                        Rectangle()
-                                            .frame(width: 170, height: 20)
-                                            .cornerRadius(20)
-                                            .foregroundColor(Color.gray)
-                                            .padding(.vertical, 15)
-                                            .padding(.leading, -40)
+                                        ZStack(alignment: .leading){
+                                            Rectangle()
+                                                .frame(width: 150, height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color.gray)
+                                                .padding(.vertical, 15)
+                                                .padding(.leading, -60)
+                                            Rectangle()
+                                                .frame(width: (CGFloat(150 * (user.waterBottle % 10)) / 10), height: 20, alignment: .leading)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color(hue: 0.152, saturation: 0.96, brightness: 0.884))
+                                                .padding(.vertical, 15)
+                                                .padding(.leading, -60)
+                                        }
                                         Text("\(user.waterBottle % 10)/10")
                                             .font(.custom("Helvetica Neue Thin", size: 20))
                                     }
@@ -68,6 +79,10 @@ struct ChallengeView: View {
                         }
                         ZStack{
                             Rectangle()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.black, lineWidth: 2)
+                                )
                                 .frame(width: 350, height: 150)
                                 .cornerRadius(25)
                                 .foregroundColor(Color.lightBlue)
@@ -88,13 +103,21 @@ struct ChallengeView: View {
                                     .padding(.leading, 30)
                                     .padding(.vertical, 7)
                                     HStack{
-                                        Rectangle()
-                                            .frame(width: 170, height: 20)
-                                            .cornerRadius(20)
-                                            .foregroundColor(Color.gray)
-                                            .padding(.vertical, 20)
-                                            .padding(.leading, 55)
-                                        Text("\(user.waterBottle % 10)/10")
+                                        ZStack(alignment: .leading){
+                                            Rectangle()
+                                                .frame(width: 150, height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color.gray)
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 40)
+                                            Rectangle()
+                                                .frame(width: (CGFloat(150 * (user.aluminumCan % 10)) / 10), height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color(hue: 0.152, saturation: 0.96, brightness: 0.884))
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 40)
+                                        }
+                                        Text("\(user.aluminumCan % 10)/10")
                                             .font(.custom("Helvetica Neue Thin", size: 20))
                                     }
                                 }
@@ -108,6 +131,10 @@ struct ChallengeView: View {
                         }
                         ZStack{
                             Rectangle()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.black, lineWidth: 2)
+                                )
                                 .frame(width: 350, height: 150)
                                 .cornerRadius(25)
                                 .foregroundColor(Color.lightBlue)
@@ -121,13 +148,22 @@ struct ChallengeView: View {
                                     .padding(.leading, 30)
                                     .padding(.vertical, 7)
                                     HStack{
-                                        Rectangle()
-                                            .frame(width: 170, height: 20)
-                                            .cornerRadius(20)
-                                            .foregroundColor(Color.gray)
-                                            .padding(.vertical, 20)
-                                            .padding(.leading, 25)
-                                        Text("\(user.waterBottle % 10)/10")
+                                        ZStack(alignment: .leading){
+                                            Rectangle()
+                                                .frame(width: 150, height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color.gray)
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 10)
+                                            Rectangle()
+                                                .frame(width: (CGFloat(150 * (user.cardboard % 10)) / 10), height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color(hue: 0.152, saturation: 0.96, brightness: 0.884))
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 10)
+                                        }
+                                        
+                                        Text("\(user.cardboard % 10)/10")
                                             .font(.custom("Helvetica Neue Thin", size: 20))
                                     }
                                 }
@@ -140,6 +176,10 @@ struct ChallengeView: View {
                         }
                         ZStack{
                             Rectangle()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.black, lineWidth: 2)
+                                )
                                 .frame(width: 350, height: 150)
                                 .cornerRadius(25)
                                 .foregroundColor(Color.lightBlue)
@@ -160,13 +200,21 @@ struct ChallengeView: View {
                                     .padding(.leading, 30)
                                     .padding(.vertical, 7)
                                     HStack{
-                                        Rectangle()
-                                            .frame(width: 170, height: 20)
-                                            .cornerRadius(20)
-                                            .foregroundColor(Color.gray)
-                                            .padding(.vertical, 20)
-                                            .padding(.leading, 55)
-                                        Text("\(user.waterBottle % 10)/10")
+                                        ZStack(alignment: .leading){
+                                            Rectangle()
+                                                .frame(width: 150, height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color.gray)
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 35)
+                                            Rectangle()
+                                                .frame(width: (CGFloat(150 * (user.groceryBag % 10)) / 10), height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color(hue: 0.152, saturation: 0.96, brightness: 0.884))
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 35)
+                                        }
+                                        Text("\(user.groceryBag % 10)/10")
                                             .font(.custom("Helvetica Neue Thin", size: 20))
                                     }
                                 }
@@ -179,9 +227,55 @@ struct ChallengeView: View {
                             }
                             .padding(.trailing, 40)
                         }
+                        ZStack{
+                            Rectangle()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(.black, lineWidth: 2)
+                                )
+                                .frame(width: 350, height: 150)
+                                .cornerRadius(25)
+                                .foregroundColor(Color(hue: 0.202, saturation: 0.973, brightness: 0.999))
+                            HStack{
+                                VStack{
+                                    VStack{
+                                        Text("Recycle Any Item")
+                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .bold()
+                                    }
+                                    .padding(.leading, 10)
+                                    .padding(.vertical, 7)
+                                    HStack{
+                                        ZStack(alignment: .leading){
+                                            Rectangle()
+                                                .frame(width: 150, height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color.gray)
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 10)
+                                            Rectangle()
+                                                .frame(width: (CGFloat(150 * (user.totalRecycled() % 50)) / 50), height: 20)
+                                                .cornerRadius(20)
+                                                .foregroundColor(Color(hue: 0.152, saturation: 0.96, brightness: 0.884))
+                                                .padding(.vertical, 20)
+                                                .padding(.leading, 10)
+                                        }
+                                        
+                                        Text("\(user.totalRecycled() % 50)/50")
+                                            .font(.custom("Helvetica Neue Thin", size: 20))
+                                    }
+                                }
+                                Image("recycle 1")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 100)
+                                    .rotationEffect(.degrees(15))
+                            }
+                        }
 
                     }
                 }
+                .frame(width: 1000)
             }
         }
     }
@@ -193,3 +287,4 @@ struct ChallengeView_Previews: PreviewProvider {
             .environmentObject(User())
     }
 }
+
