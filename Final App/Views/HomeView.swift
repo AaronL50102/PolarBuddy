@@ -26,6 +26,8 @@ struct HomeView: View {
                 VStack{
                     Spacer()
                     HStack{
+                        Spacer()
+                        
                         NavigationLink {
                             StoreView()
                         } label: {
@@ -39,8 +41,30 @@ struct HomeView: View {
                             .cornerRadius(20)
                             .padding()
                             Spacer()
-                        }
+                        }.padding(.leading, 20)
+                        
                         Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                        NavigationLink {
+                            InstructionsView()
+                        } label: {
+                            HStack{
+                                Image(systemName: "questionmark.circle.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .scaleEffect(0.3)
+                                    .foregroundColor(.lightBlue)
+                                    .padding()
+                            }
+//                            .foregroundColor(.black)
+//                            .padding()
+//                            .background(Color.lightBlue)
+//                            .cornerRadius(20)
+//                            .padding()
+                        }
                     }
 
                     Spacer()
