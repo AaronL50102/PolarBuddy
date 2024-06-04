@@ -27,6 +27,11 @@ struct InputView: View {
     
     var body: some View {
         ZStack{
+            Image("blueBackground3")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(1.3)
+                .opacity(0.5)
             if let selectedImage{
                 if showImage{
                     VStack{
