@@ -90,7 +90,7 @@ struct InputView: View {
                             .edgesIgnoringSafeArea(.all)
                     }
                 }
-                .padding(.bottom, 300)
+                .padding(.bottom, 280)
             }
         }
     }

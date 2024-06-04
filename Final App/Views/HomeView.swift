@@ -61,52 +61,32 @@ struct HomeView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .scaleEffect(2)
                             if user.hasHat {
-//                                VStack{
-                                    Image("hat")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .scaleEffect(0.42)
-                                        .offset(x: 5, y: -137)
-//                                    Spacer()
-//                                }
-//                                .padding(.top, 35)
-//                                .padding(.leading, 10)
+                                Image("hat")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaleEffect(0.42)
+                                .offset(x: 5, y: -150)
                             }
                             if user.hasScarf {
-//                                VStack{
-                                    Image("scarf")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .scaleEffect(0.65)
-                                        .offset(x: 5, y: -50)
-//                                    Spacer()
-//                                }
-//                                .padding(.top, 155)
-//                                .padding(.leading, 10)
+                                Image("scarf")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaleEffect(0.6)
+                                    .offset(x: 5, y: -50)
                             }
                             if user.hasGlasses {
-//                                VStack{
-                                    Image("glasses")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .scaleEffect(0.34)
-                                        .offset(x: 5, y: -110)
-//                                    Spacer()
-//                                }
-//                                .padding(.top, 69)
-//                                .padding(.leading, 9)
+                                Image("glasses")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaleEffect(0.34)
+                                    .offset(x: 5, y: -115)
                             }
                             if user.hasBag {
-//                                VStack{
-//                                    Spacer()
-                                    Image("louisBag")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .scaleEffect(0.56)
-                                        .offset(x: 8, y: 30)
-//                                }
-//                                .padding(.bottom, 210)
-//                                .padding(.leading, 50)
+                                Image("louisBag")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .scaleEffect(0.56)
+                                    .offset(x: 8, y: 30)
                             }
                         }
                         ZStack(alignment: .bottom) {

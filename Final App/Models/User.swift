@@ -26,10 +26,10 @@ import FirebaseDatabase
     @Published var aluminumCan: Int = 200
     @Published var cardboard: Int = 300
     @Published var groceryBag: Int = 400
-    @Published var hasScarf: Bool = true
-    @Published var hasHat: Bool = true
-    @Published var hasGlasses: Bool = true
-    @Published var hasBag: Bool = true
+    @Published var hasScarf: Bool = false
+    @Published var hasHat: Bool = false
+    @Published var hasGlasses: Bool = false
+    @Published var hasBag: Bool = false
     @Published var points: Int = 0
     @Published var stars: Int = 0
     
