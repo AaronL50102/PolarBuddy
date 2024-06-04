@@ -142,6 +142,29 @@ import FirebaseDatabase
         Database.database().reference().child("user/\(uid)/hasBag").setValue(hasGlasses)
     }
     
+    func challengeUpdate() -> Void {
+        if waterBottle % 10 == 0 {
+            points += 50
+            updateStars()
+        }
+        if aluminumCan % 10 == 0 {
+            points += 50
+            updateStars()
+        }
+        if cardboard % 10 == 0 {
+            points += 50
+            updateStars()
+        }
+        if groceryBag % 10 == 0 {
+            points += 50
+            updateStars()
+        }
+        if (waterBottle + aluminumCan + cardboard + groceryBag) % 50 == 0 {
+            points += 100
+            updateStars()
+        }
+    }
+    
     func getUserData() -> Void {
         print("it is being called")
         print(uid)
