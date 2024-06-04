@@ -13,6 +13,6 @@ class Cart: ObservableObject{
     func add(item: Product){
         items.append(item)
     }
-   
+    
     
 }

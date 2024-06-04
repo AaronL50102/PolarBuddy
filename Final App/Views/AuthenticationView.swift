@@ -66,9 +66,7 @@ struct AuthentificationView: View {
                 }.padding()
                 Spacer()
             }
-            
         }
-        
     }
 }
 

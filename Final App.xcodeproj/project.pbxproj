@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		010FCEA42BD2E9350040A93F /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
-		01C09AA12B9B7B4F009EC83F /* Final App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C09AA12B9B7B4F009EC83F /* Polar Care.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Polar Care.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C09AA42B9B7B4F009EC83F /* Final_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Final_AppApp.swift; sourceTree = "<group>"; };
 		01C09AA62B9B7B4F009EC83F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		01C09AA82B9B7B50009EC83F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		01C09AA22B9B7B4F009EC83F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				01C09AA12B9B7B4F009EC83F /* Final App.app */,
+				01C09AA12B9B7B4F009EC83F /* Polar Care.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			);
 			name = "Final App";
 			productName = "Final App";
-			productReference = 01C09AA12B9B7B4F009EC83F /* Final App.app */;
+			productReference = 01C09AA12B9B7B4F009EC83F /* Polar Care.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -452,7 +452,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "eliza-liebo.Final-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Polar Care";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -487,7 +487,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "eliza-liebo.Final-App";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Polar Care";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;

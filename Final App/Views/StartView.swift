@@ -20,7 +20,6 @@ struct StartView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-
     }
 }
 

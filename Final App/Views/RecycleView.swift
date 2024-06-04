@@ -11,15 +11,12 @@ struct RecycleView: View {
 
     var body: some View {
         
-       
         ScrollView{
             Text("How to Recycle")
                 .font(.custom("Helvetica Neue Thin", size: 40))
                 .bold()
                 .foregroundColor(Color.black)
-            
             Spacer()
-            
             ZStack{
                 Rectangle()
                     .frame(width: 325,height: 415)
@@ -30,23 +27,18 @@ struct RecycleView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 125)
-                    
                     Text("RULE 1: know what to throw")
                         .font(.custom("Helvetica Neue Thin", size: 30))
                         .bold()
                         .foregroundColor(Color.white)
                         .frame(width: 350,height: 100)
-                        
                     Text("Only put recyclable materials – paper, cardboard, metal cans, plastic bottles and jugs – in your recycling cart.")
                         .font(.custom("Helvetica Neue Thin", size: 20))
                         .frame(width: 300,height: 100)
                         .foregroundColor(Color.white)
-                    
-                    
                 }
             }
             Spacer()
-            
             ZStack{
                 Rectangle()
                     .frame(width: 325,height: 415)
@@ -70,10 +62,7 @@ struct RecycleView: View {
                         .foregroundColor(Color.white)
                 }
             }
-            
-            
             Spacer()
-            
             ZStack{
                 Rectangle()
                     .frame(width: 325,height: 400)
@@ -84,27 +73,19 @@ struct RecycleView: View {
                          .resizable()
                          .aspectRatio(contentMode: .fit)
                          .frame(width: 125)
-                    
                     Text("RULE 3: Don't Bag It")
                         .font(.custom("Helvetica Neue Thin", size: 30))
                         .bold()
                         .foregroundColor(Color.white)
-                    
-                        
                     Text("Your recyclable items should be placed loose in the cart. No need to bag them.")
                         .font(.custom("Helvetica Neue Thin", size: 20))
                         .frame(width: 300,height: 100)
                         .foregroundColor(Color.white)
                 }
             }
-    
-            
-            
-            }
-
         }
     }
-
+}
 
 struct RecycleView_Previews: PreviewProvider {
     static var previews: some View {

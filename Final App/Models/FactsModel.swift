@@ -25,10 +25,10 @@ extension Co2: Identifiable {
 
 extension Co2: Equatable {
     static func == (a: Co2, b: Co2) -> Bool {
-            return
-                a.month == b.month &&
-                a.day == b.day
-        }
+        return
+        a.month == b.month &&
+        a.day == b.day
+    }
 }
 
 @MainActor
@@ -36,17 +36,17 @@ class FactsModel: ObservableObject{
     
     @Published var result = Result()
     
-
+    
     
     
     init(){
-
+        
         print("initializing")
         Task{
             await loadData()
         }
     }
-  
+    
     func loadData() async{
         print("function started")
         let urlString = "https://global-warming.org/api/co2-api"
@@ -68,10 +68,10 @@ class FactsModel: ObservableObject{
         print("decoded JSON")
         // start by creating a co2 object with today's date.
         let currentDateTime = Date()
-
+        
         // get the user's calendar
         let userCalendar = Calendar.current
-
+        
         // choose which date and time components are needed
         let requestedComponents: Set<Calendar.Component> = [
             .year,
@@ -83,7 +83,7 @@ class FactsModel: ObservableObject{
         ]
         
         let dateTimeComponents = userCalendar.dateComponents(requestedComponents, from: currentDateTime)
-//
+        //
         var today = Co2()
         today.month = String(describing: dateTimeComponents.month ?? 5)
         today.day = String(describing: dateTimeComponents.day ?? 7)

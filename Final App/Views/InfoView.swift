@@ -18,13 +18,11 @@ struct InfoView: View {
                     .foregroundColor(Color.white)
                     .ignoresSafeArea()
                 VStack{
-                   Spacer()
-
+                    Spacer()
                     Text("Info")
                         .font(.custom("Helvetica Neue Thin", size: 45))
                         .bold()
                         .foregroundColor(Color.black)
-                   
                     Spacer()
                     VStack{
                         NavigationLink {
@@ -34,12 +32,11 @@ struct InfoView: View {
                                 Image("emission")
                                     .resizable()
                                     .cornerRadius(40)
-
+                                
                             }
                         }
                         Spacer()
                         Spacer()
-                        
                         NavigationLink {
                             RecycleView()
                         } label: {
@@ -54,16 +51,13 @@ struct InfoView: View {
                                     .offset(x:2, y:-2)
                             }
                         }
-                        
-                        
-                        
                     }.padding(50)
-                   Spacer()
+                    Spacer()
                 }
-            }
             }
         }
     }
+}
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {

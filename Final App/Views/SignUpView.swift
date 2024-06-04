@@ -14,17 +14,12 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack{
-            //Rectangle()
-                //.foregroundColor(.blue)
-                //.ignoresSafeArea()
             VStack{
                 Spacer()
-                
                 Image("512")
                     .resizable()
                     .aspectRatio(contentMode: .fit
                     )
-                                
                 TextField("email address", text: $user.emailAddress)
                     .padding()
                     .foregroundColor(.black)
@@ -75,11 +70,8 @@ struct SignUpView: View {
 //                        .background(Color.blueish)
                         .cornerRadius(20)
                 }
-
-
                 Spacer()
- 
-            }
+             }
         }
     }
 }

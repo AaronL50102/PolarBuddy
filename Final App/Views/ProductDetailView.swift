@@ -1,38 +1,21 @@
 //
-
 //  ProductDetailView.swift
-
 //  StateManagement
-
 //
-
 //  Created by Swope, Thomas on 11/28/23.
-
 //
-
-
 
 import SwiftUI
-
 import Firebase
-
 import FirebaseCore
-
 import FirebaseAuth
-
 import FirebaseDatabase
-
-
 
 struct ProductDetailView: View{
 
     var product: Product
-
     @EnvironmentObject var cart: Cart
-
     @EnvironmentObject var user: User
-
-    
 
     var body: some View{
         VStack{
@@ -122,19 +105,10 @@ struct ProductDetailView: View{
     }
 }
 
-
 struct ProductDetailView_Previews: PreviewProvider {
-
     static var previews: some View {
-
         ProductDetailView(product: Product())
-
             .environmentObject(Cart())
-
             .environmentObject(User())
-
-        
-
     }
-
 }

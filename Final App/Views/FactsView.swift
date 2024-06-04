@@ -32,11 +32,9 @@ struct FactsView: View {
                 
                 Text("By adding more carbon dioxide to the atmosphere, people are supercharging the natural greenhouse effect, causing global temperature to rise")
                     .font(.custom("Helvetica Neue Thin", size: 15))
-                
                     .offset(x:-5,y:-140)
                     .frame(width: 325,height: 100)
-                
-                
+                           
                 VStack{
                     ForEach(factsModel.result.co2) { v in
                         HStack{
@@ -52,16 +50,15 @@ struct FactsView: View {
                                 .foregroundColor(Color.mediumBlue)
                                 .cornerRadius(10)
                                 .offset(x:0,y:180)
-                            
                             Spacer()
                         }
                     }
                 }
-                
             }.padding()
         }
     }
 }
+
 struct FactsView_Previews: PreviewProvider {
     static var previews: some View {
         FactsView()

@@ -16,7 +16,7 @@ import FirebaseDatabase
     @Published var name: String = ""
     @Published var polarName: String = ""
     @Published var age: Int = 18
-//    @Published var polarName: String = ""
+    //    @Published var polarName: String = ""
     @Published var emailAddress: String = ""
     @Published var password: String = ""
     @Published var subscribe: Bool = false
@@ -35,10 +35,10 @@ import FirebaseDatabase
     
     init(emailAddress: String = "", password: String = "", polarName: String = "") {
     }
-
-
+    
+    
     init(emailAddress: String = "", password: String = "", polarName: String = "", uid: String = "") {
-
+        
         self.emailAddress = emailAddress
         self.password = password
         
@@ -63,15 +63,15 @@ import FirebaseDatabase
     }
     
     func setHasBag(bool: Bool) -> Void {
-
-            hasBag = bool
-
-        }
+        
+        hasBag = bool
+        
+    }
     
     func co2Emissions() -> Double {
         return Double(self.waterBottle) * 0.84 + Double(self.aluminumCan) * 0.097 + Double(self.cardboard) * 1.81 + Double(self.groceryBag) * 1.58
     }
-
+    
     func addBottle() -> Void {
         self.waterBottle += 1
         self.points += 15
@@ -79,7 +79,7 @@ import FirebaseDatabase
         // update database
         Database.database().reference().child("user/\(uid)/bottles").setValue(waterBottle)
         Database.database().reference().child("user/\(uid)/points").setValue(points)
-
+        
     }
     
     //Temporary test function
@@ -103,7 +103,7 @@ import FirebaseDatabase
         // update database
         Database.database().reference().child("user/\(uid)/cardboard").setValue(cardboard)
         Database.database().reference().child("user/\(uid)/points").setValue(points)
-
+        
     }
     
     func addBag() -> Void {
@@ -118,7 +118,7 @@ import FirebaseDatabase
     func subtractStars(numStars: Int) -> Void {
         self.stars -= numStars
         Database.database().reference().child("user/\(uid)/stars").setValue(stars)
-
+        
     }
     
     func updateStars() -> Void {
@@ -161,8 +161,8 @@ import FirebaseDatabase
         Task {
             print("running it is")
             
-//            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
-//            self.uid = u.value as? String ?? ""
+            //            guard let u = try? await Database.database().reference().child("user/\(uid)/uid").getData() else {return}
+            //            self.uid = u.value as? String ?? ""
             
             guard let n = try? await Database.database().reference().child("user/\(uid)/name").getData() else {return}
             self.name = n.value as? String ?? ""
