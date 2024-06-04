@@ -14,17 +14,42 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack{
+            Image("blueBackground")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .edgesIgnoringSafeArea(.all)
+                .scaleEffect(1.3)
+                .opacity(0.2)
             VStack{
                 Spacer()
-                Image("512")
+                Image("realLogo")
                     .resizable()
-                    .aspectRatio(contentMode: .fit
-                    )
-                TextField("email address", text: $user.emailAddress)
-                    .padding()
-                    .foregroundColor(.black)
-                SecureField("password", text: $user.password)
-                    .padding()
+                    .aspectRatio(contentMode: .fit)
+                ZStack{
+                    TextField("email address", text: $user.emailAddress)
+                        .padding([.leading, .trailing], 110)
+                        .padding(20)
+                        .foregroundColor(.black)
+                        .scaleEffect(1.6)
+                    Rectangle()
+                        .frame(width: 270, height: 1)
+                        .foregroundColor(Color.gray)
+                        .opacity(0.5)
+                        .offset(y: 20)
+                }
+                ZStack{
+                    SecureField("password", text: $user.password)
+                        .padding([.leading, .trailing], 110)
+                        .padding(20)
+                        .foregroundColor(.black)
+                        .scaleEffect(1.6)
+                    Rectangle()
+                        .frame(width: 270, height: 1)
+                        .foregroundColor(Color.gray)
+                        .opacity(0.5)
+                        .offset(y: 20)
+                }
+                
                 Spacer()
                 
                 Button {
@@ -42,11 +67,11 @@ struct SignUpView: View {
                 } label: {
                     Text("Sign Up")
                         .foregroundColor(.white)
-                        .padding(.horizontal, 100)
-                        .padding(.vertical, 10)
+                        .font(Constants.mediumFont)
+                        .frame(width: 300,height: 60)
                         .background(Color.blue)
-//                        .background(Color.blueish)
                         .cornerRadius(20)
+                        .padding()
                 }
                 
                 Button {
@@ -64,11 +89,11 @@ struct SignUpView: View {
                 } label: {
                     Text("Log In")
                         .foregroundColor(.white)
-                        .padding(.horizontal, 100)
-                        .padding(.vertical, 10)
+                        .font(Constants.mediumFont)
+                        .frame(width: 300,height: 60)
                         .background(Color.blue)
-//                        .background(Color.blueish)
                         .cornerRadius(20)
+                        .padding(.bottom, 50)
                 }
                 Spacer()
              }
@@ -82,3 +107,10 @@ struct SignUpView_Previews: PreviewProvider {
             .environmentObject(User())
     }
 }
+
+//                        .foregroundColor(.white)
+//                        .padding(.horizontal, 100)
+//                        .padding(.vertical, 10)
+//                        .background(Color.blue)
+//                        .cornerRadius(20)
+

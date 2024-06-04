@@ -21,7 +21,6 @@ struct LoginView: View {
                     .background(Color.lightBlue)
                     .cornerRadius(20)
                     .padding()
-                
             }
             
             Button {

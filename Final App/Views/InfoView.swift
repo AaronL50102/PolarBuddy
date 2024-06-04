@@ -11,50 +11,8 @@ import SwiftUI
 struct InfoView: View {
     
     var body: some View {
-        
-        NavigationView{
-            ZStack{
-                Rectangle()
-                    .foregroundColor(Color.white)
-                    .ignoresSafeArea()
-                VStack{
-                    Spacer()
-                    Text("Info")
-                        .font(.custom("Helvetica Neue Thin", size: 45))
-                        .bold()
-                        .foregroundColor(Color.black)
-                    Spacer()
-                    VStack{
-                        NavigationLink {
-                            FactsView()
-                        } label: {
-                            ZStack{
-                                Image("emission")
-                                    .resizable()
-                                    .cornerRadius(40)
-                                
-                            }
-                        }
-                        Spacer()
-                        Spacer()
-                        NavigationLink {
-                            RecycleView()
-                        } label: {
-                            ZStack{
-                                Image("recycle")
-                                    .resizable()
-                                    .cornerRadius(40)
-                                Text("Recycle")
-                                    .font(.custom("Helvetica Neue Thin", size: 25))
-                                    .bold()
-                                    .foregroundColor(Color.white)
-                                    .offset(x:2, y:-2)
-                            }
-                        }
-                    }.padding(50)
-                    Spacer()
-                }
-            }
+        VStack{
+            Text("Challenges")
         }
     }
 }
