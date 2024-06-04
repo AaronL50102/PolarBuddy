@@ -15,6 +15,7 @@ struct ContentView: View {
     
     @State var viewState: ViewState = .home
     @State var test: Int = 1 //Remove later
+    
     var body: some View {
         VStack {
             Spacer()
@@ -92,7 +93,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//somehow a ZStack a single rectangle affects the HStack of buttons. I lost my mind for 30 minutes over this but hey I found a solution
+//somehow a ZStack a single rectangle affects the HStack of buttons. I lost my mind for 30 minutes over this but hey I found a solution (kinda)
 struct ExtractedView: View {
     var body: some View {
         Rectangle()

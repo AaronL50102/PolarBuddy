@@ -33,7 +33,7 @@ struct InputView: View {
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
-                        Text("\(identifyImage(image: selectedImage, user2: user))")
+                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? "plastic bottle" : "AAAAA")")
                             .font(.custom("Helvetica Neue Thin", size: 40))
                             .bold()
                             .foregroundColor(Color.lightMediumBlue)
@@ -55,17 +55,24 @@ struct InputView: View {
                     }
                 }
                 if showPoints{
-                    Text("\(identifyImage(image: selectedImage, user2: user)) added!")
-                        .fontWeight(.bold)
-                        .font(.system(size: 30))
-                        .foregroundColor(Color.red)
-                        .transition(.slide)
-                        .onAppear{
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                                showPoints.toggle()//false
-                                showButton.toggle()//true
-                            }
+                    HStack{
+                        Image("star")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? 5 : 0)")
+                            .fontWeight(.bold)
+                            .font(.system(size: 30))
+                        Text("+")
+                            .fontWeight(.bold)
+                            .font(.system(size: 30))
+                    }
+                    .transition(.slide)
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            showPoints.toggle()//false
+                            showButton.toggle()//true
                         }
+                    }
                 }
             }
             if showButton{
@@ -74,7 +81,7 @@ struct InputView: View {
                     Text("Recycled? Take a picture!")
                         .font(.custom("Helvetica Neue Thin", size: 25))
                         .bold()
-                        .foregroundColor(Color.lightMediumBlue)
+                        .foregroundColor(Color.black)
                     Button{
                         self.showCamera.toggle()
                         photo = self.selectedImage ?? UIImage()
