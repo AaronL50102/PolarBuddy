@@ -80,7 +80,7 @@ struct InputView: View {
 
                             .scaledToFit()
 
-                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? "plastic bottle" : "AAAAA")")
+                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? "plastic bottle" : "This is not recyclable")")
 
                             .font(.custom("Helvetica Neue Thin", size: 40))
 
