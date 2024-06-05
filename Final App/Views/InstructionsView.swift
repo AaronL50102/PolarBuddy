@@ -18,7 +18,6 @@ struct InstructionsView: View {
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
                 .opacity(0.4)
-            
             ScrollView {
                 Text("FAQs")
                     .font(.custom("Helvetica Neue Thin", size: 40))
