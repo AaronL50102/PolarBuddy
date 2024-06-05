@@ -19,26 +19,30 @@ import SwiftUI
 struct ChallengeView: View {
 
     @EnvironmentObject  var user: User
-
-    
+    @State var textAppear: Double = 0.0
+    @State var challengeAppear: Double = -500
+    @State var challengeAppear1: Double = -500
+    @State var challengeAppear2: Double = -500
+    @State var challengeAppear3: Double = -500
+    @State var challengeAppear4: Double = -500
 
     var body: some View {
 
         ZStack{
 
-//            Image("blueBackground2")
+            Image("blueBackground")
 
-//                .resizable()
+                .resizable()
 
-//                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fit)
 
-//                .ignoresSafeArea()
+                .ignoresSafeArea()
 
-//                .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
 
-//                .scaleEffect(1.3)
+                .scaleEffect(1.3)
 
-//                .opacity(0.4)
+                .opacity(0.4)
 
             VStack{
 
@@ -60,6 +64,12 @@ struct ChallengeView: View {
 
                         .padding(.top, -10)
 
+                }
+                .opacity(textAppear)
+                .onAppear{
+                    withAnimation (.easeIn(duration: 0.5).delay(0)){
+                        textAppear = 1
+                    }
                 }
 
                 .padding(.top, 30)
@@ -119,6 +129,12 @@ struct ChallengeView: View {
 //                                    .rotationEffect(.degrees(15))
                             }
                         }
+                        .offset(x: challengeAppear)
+                        .onAppear{
+                            withAnimation (.spring(dampingFraction: 0.6).delay(0.5)){
+                                challengeAppear = 0
+                            }
+                        }
                         ZStack{
                             Rectangle()
                                 .overlay(
@@ -175,6 +191,12 @@ struct ChallengeView: View {
                                     .padding(.trailing, 20)
                             }
                         }
+                        .offset(x: challengeAppear1)
+                        .onAppear{
+                            withAnimation (.spring(dampingFraction: 0.6).delay(0.6)){
+                                challengeAppear1 = 0
+                            }
+                        }
                         ZStack{
                             Rectangle()
                                 .overlay(
@@ -221,6 +243,12 @@ struct ChallengeView: View {
                                     .rotationEffect(.degrees(15))
                                     .scaleEffect(0.9)
                                     .offset(x:-6, y:0)
+                            }
+                        }
+                        .offset(x: challengeAppear2)
+                        .onAppear{
+                            withAnimation (.spring(dampingFraction: 0.6).delay(0.7)){
+                                challengeAppear2 = 0
                             }
                         }
                         ZStack{
@@ -281,6 +309,12 @@ struct ChallengeView: View {
                             }
                             .padding(.trailing, 40)
                         }
+                        .offset(x: challengeAppear3)
+                        .onAppear{
+                            withAnimation (.spring(dampingFraction: 0.6).delay(0.8)){
+                                challengeAppear3 = 0
+                            }
+                        }
                         ZStack{
                             Rectangle()
                                 .overlay(
@@ -323,6 +357,12 @@ struct ChallengeView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 100)
                                     .rotationEffect(.degrees(15))
+                            }
+                        }
+                        .offset(x: challengeAppear4)
+                        .onAppear{
+                            withAnimation (.spring(dampingFraction: 0.6).delay(0.9)){
+                                challengeAppear4 = 0
                             }
                         }
                     }

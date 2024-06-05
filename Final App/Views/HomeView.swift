@@ -50,8 +50,6 @@ struct HomeView: View {
 
                 VStack{
 
-                    Spacer()
-
                     HStack{
 
                         Spacer()
@@ -441,6 +439,7 @@ struct HomeView: View {
                     Spacer()
 
                 }
+                .padding(.top, -25)
 
             }
 

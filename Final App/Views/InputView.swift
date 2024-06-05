@@ -49,6 +49,8 @@ struct InputView: View {
     @State var showPoints: Bool = false
 
     @State var showButton: Bool = true
+    
+    @State var starSize: Double = 1.0
 
     
 
@@ -85,29 +87,44 @@ struct InputView: View {
                             .bold()
 
                             .foregroundColor(Color.lightMediumBlue)
+                        HStack{
+                            Button {
 
-                        Button {
+                                addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
 
-                            addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
+                                showImage.toggle() //false
 
-                            showImage.toggle() //false
+                                showPoints.toggle() //true
 
-                            showPoints.toggle() //true
+                            } label: {
 
-                        } label: {
+                                Text("Correct!")
 
-                            Text("Correct?")
+                                    .font(.custom("Helvetica Neue Thin", size: 30))
 
-                                .font(.custom("Helvetica Neue Thin", size: 30))
+                                    .bold()
 
-                                .bold()
+                                    .foregroundColor(Color.lightMediumBlue)
+                            }
+                            Spacer()
+                            Button {
+                                showImage.toggle()
+                                showButton.toggle()
+                            } label: {
+                                Text("Retake")
+                                    .font(.custom("Helvetica Neue Thin", size: 30))
 
-                                .foregroundColor(Color.lightMediumBlue)
+                                    .bold()
+
+                                    .foregroundColor(Color.lightMediumBlue)
+                            }
 
                         }
+                        .padding([.leading, .trailing], 50)
+
+                        
 
                     }
-
                     .onAppear{
 
                         DispatchQueue.main.asyncAfter(deadline: .now()){
@@ -124,42 +141,40 @@ struct InputView: View {
 
                     HStack{
 
-                        Image("star")
+//                        Image("star")
+//
+//                            .resizable()
+//
+//                            .aspectRatio(contentMode: .fit)
+//
+//                            .frame(width: 100)
 
-                            .resizable()
-
-                            .aspectRatio(contentMode: .fit)
-
-                            .frame(width: 100)
-
-                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? 5 : 0)")
-
+                        Text("+\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? 15 : identifyImage(image: selectedImage, user2: user) == "carton" ? 20 : 0) Points!")
                             .fontWeight(.bold)
-
                             .font(.system(size: 30))
-
-                        Text("+")
-
-                            .fontWeight(.bold)
-
-                            .font(.system(size: 30))
-
+//                        Text("+")
+//
+//                            .fontWeight(.bold)
+//
+//                            .font(.system(size: 30))
                     }
-
-                    .transition(.slide)
-
+                    .scaleEffect(starSize)
                     .onAppear{
-
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-
-                            showPoints.toggle()//false
-
-                            showButton.toggle()//true
-
+                        withAnimation (.easeIn(duration: 0.2).delay(1)){
+                            self.starSize = 1.2
                         }
-
                     }
-
+                    .onAppear{
+                        withAnimation (.easeIn(duration: 0.5).delay(1.2)){
+                            self.starSize = 0.0
+                        }
+                    }
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                            showPoints.toggle()//false
+                            showButton.toggle()//true
+                        }
+                    }
                 }
 
             }
@@ -276,6 +291,12 @@ struct InputView: View {
 
         user.challengeUpdate()
 
+    }
+    
+    else if type == "carton" {
+        user.addCardboard()
+        user.updateStars()
+        user.challengeUpdate()
     }
 
     print("Amount of bottle recycled: \(user.getBottle())")

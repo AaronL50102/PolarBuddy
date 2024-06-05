@@ -60,9 +60,7 @@ struct AuthentificationView: View {
                             .padding(.all, 5)
                             .frame(width: 300, height: 60)
                         Text("Login")
-                        
                     }
-                    
                 }.padding()
                 Spacer()
             }

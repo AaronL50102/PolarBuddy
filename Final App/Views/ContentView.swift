@@ -51,6 +51,7 @@ struct ContentView: View {
                                 .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
+                        .scaleEffect((viewState == .info ? 1.15 : 1))
                     }
                     Spacer()
                     Button {
@@ -65,6 +66,7 @@ struct ContentView: View {
                                 .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
+                        .scaleEffect((viewState == .home ? 1.15 : 1))
                     }
                     Spacer()
                     Button {
@@ -79,21 +81,22 @@ struct ContentView: View {
                                 .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
+                        .scaleEffect((viewState == .input ? 1.15 : 1))
                     }
                     Spacer()
                     Button {
                         withAnimation{
                             viewState = .report
-
                         }
                     } label: {
                         VStack{
                             Image(systemName: "pencil")
-                                .scaleEffect(2)
+                                .scaleEffect(2.3)
                             Text("Info")
                                 .padding(.vertical, 2)
                         }
                         .foregroundColor(.white)
+                        .scaleEffect((viewState == .report ? 1.15 : 1))
                     }
                 }.padding([.leading, .trailing], 40)
             }
@@ -148,3 +151,4 @@ struct ExtractedView: View {
             .offset(x: 90, y: 74)
     }
 }
+//    .foregroundColor(Color(hue: 1.0, saturation: 0.001, brightness: 0.922))

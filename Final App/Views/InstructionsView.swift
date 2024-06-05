@@ -10,7 +10,12 @@ import SwiftUI
 struct InstructionsView: View {
     
     @EnvironmentObject var user: User
-    
+    @State var scale1: Double = 0
+    @State var scale2: Double = 0
+    @State var scale3: Double = 0
+    @State var scale4: Double = 0
+
+
     var body: some View {
         ZStack {
             Image("differentBackground")
@@ -18,7 +23,7 @@ struct InstructionsView: View {
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
                 .opacity(0.4)
-            ScrollView {
+            ScrollView (.vertical, showsIndicators: false){
                 Text("FAQs")
                     .font(.custom("Helvetica Neue Thin", size: 40))
                     .bold()
@@ -45,6 +50,12 @@ struct InstructionsView: View {
                             .foregroundColor(Color.white)
                     }
                 }
+                .scaleEffect(scale1)
+                .onAppear{
+                    withAnimation (.spring(dampingFraction: 1)){
+                        scale1 = 1
+                    }
+                }
                 Spacer()
                 ZStack{
                     Rectangle()
@@ -67,6 +78,12 @@ struct InstructionsView: View {
                             .font(.custom("Helvetica Neue Thin", size: 14))
                             .frame(width: 300,height: 100)
                             .foregroundColor(Color.white)
+                    }
+                }
+                .scaleEffect(scale2)
+                .onAppear{
+                    withAnimation (.spring(dampingFraction: 1).delay(0.15)){
+                        scale2 = 1
                     }
                 }
                 Spacer()
@@ -93,6 +110,12 @@ struct InstructionsView: View {
                             .foregroundColor(Color.white)
                     }
                 }
+                .scaleEffect(scale3)
+                .onAppear{
+                    withAnimation (.spring(dampingFraction: 1).delay(0.3)){
+                        scale3 = 1
+                    }
+                }
                 ZStack{
                     Rectangle()
                         .frame(width: 325,height: 415)
@@ -112,6 +135,12 @@ struct InstructionsView: View {
                             .font(.custom("Helvetica Neue Thin", size: 19))
                             .frame(width: 300,height: 100)
                             .foregroundColor(Color.white)
+                    }
+                }
+                .scaleEffect(scale4)
+                .onAppear{
+                    withAnimation (.spring(dampingFraction: 1).delay(0.45)){
+                        scale4 = 1
                     }
                 }
 

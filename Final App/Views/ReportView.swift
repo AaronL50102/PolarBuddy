@@ -16,6 +16,10 @@ struct ReportView: View {
     
     @EnvironmentObject var user: User
     @State var showSheet = false
+    @State var appear: Double = 500
+    @State var appear1: Double = 500
+    @State var appear2: Double = 500
+    @State var appear3: Double = 0.0
     
     var body: some View {
         
@@ -36,46 +40,54 @@ struct ReportView: View {
                             ZStack{
                                 VStack{
                                     VStack{
-                                        Text("By recycling you")
-                                            .font(.custom("Helvetica Neue Thin", size: 40))
-                                            .bold()
-                                            .multilineTextAlignment(.leading)
-                                            .foregroundColor(Color.black)
-            //                                .offset(x:-18, y:-270)
-                                        HStack{
-                                            Text("have saved ")
+                                        VStack{
+                                            Text("By recycling you")
                                                 .font(.custom("Helvetica Neue Thin", size: 40))
                                                 .bold()
                                                 .multilineTextAlignment(.leading)
                                                 .foregroundColor(Color.black)
-                //                                .offset(x:-60, y:-255)
+                //                                .offset(x:-18, y:-270)
+                                            HStack{
+                                                Text("have saved ")
+                                                    .font(.custom("Helvetica Neue Thin", size: 40))
+                                                    .bold()
+                                                    .multilineTextAlignment(.leading)
+                                                    .foregroundColor(Color.black)
+                    //                                .offset(x:-60, y:-255)
+                                                Spacer()
+                                            }.padding(.leading, 80)
                                             Spacer()
-                                        }.padding(.leading, 80)
-                                        Spacer()
+                                        }
+                                        .padding(.top, 20)
+                                        VStack{
+                                            Image("kids")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 150)
+                    //                            .scaleEffect(0.20)
+                    //                            .offset(x:110, y:-210)
+                                            Spacer()
+                                        }
+                                        .padding(.top, -50)
+                                        .padding(.leading, 210)
+                                        VStack{
+                                            Image("trash")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 250)
+                    //                            .scaleEffect(0.35)
+                    //                            .offset(x:-65, y:-185)
+                                            Spacer()
+                                        }
+                                        .padding(.top, -190)
+                                        .padding(.trailing, 160)
                                     }
-                                    .padding(.top, 20)
-                                    VStack{
-                                        Image("kids")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 150)
-                //                            .scaleEffect(0.20)
-                //                            .offset(x:110, y:-210)
-                                        Spacer()
+                                    .opacity(appear3)
+                                    .onAppear{
+                                        withAnimation (.easeIn){
+                                            appear3 = 1
+                                        }
                                     }
-                                    .padding(.top, -50)
-                                    .padding(.leading, 210)
-                                    VStack{
-                                        Image("trash")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 250)
-                //                            .scaleEffect(0.35)
-                //                            .offset(x:-65, y:-185)
-                                        Spacer()
-                                    }
-                                    .padding(.top, -190)
-                                    .padding(.trailing, 160)
                                     VStack{
                                         ZStack {
                                             Rectangle()
@@ -94,7 +106,14 @@ struct ReportView: View {
                                                     .foregroundColor(Color.white)
                                                     //.offset(x:0, y:-60)
                                             }
-                                        }.padding()
+                                        }
+                                        .padding()
+                                        .offset(x: appear)
+                                        .onAppear{
+                                            withAnimation (.spring(dampingFraction: 0.6).delay(0.5)){
+                                                appear = 0
+                                            }
+                                        }
                                         ZStack {
                                             Rectangle()
                                                 .foregroundColor(Color.mediumBlue)
@@ -112,7 +131,14 @@ struct ReportView: View {
                                                     .foregroundColor(Color.white)
                                                     //.offset(x:0, y:95)
                                             }
-                                        }.padding()
+                                        }
+                                        .padding()
+                                        .offset(x: appear1)
+                                        .onAppear{
+                                            withAnimation (.spring(dampingFraction: 0.6).delay(0.6)){
+                                                appear1 = 0
+                                            }
+                                        }
                                         ZStack {
                                             Rectangle()
                                                 .foregroundColor(Color.lightMediumBlue)
@@ -130,7 +156,14 @@ struct ReportView: View {
                                                     .foregroundColor(Color.white)
                                                     //.offset(x:0, y:255)
                                             }
-                                        }.padding()
+                                        }
+                                        .padding()
+                                        .offset(x: appear2)
+                                        .onAppear{
+                                            withAnimation (.spring(dampingFraction: 0.6).delay(0.7)){
+                                                appear2 = 0
+                                            }
+                                        }
                                     }
                                     .padding(.top, -100)
                                 }
@@ -194,62 +227,62 @@ struct ReportView: View {
                                 }
                                 //.frame(width: 300, height: 300)
                             }
-                            NavigationLink {
-                                RecycleView()//CHANGE THIS TO A NEW VIEW
-                            } label: {
-                                ZStack{
-                                    Rectangle()
-                                        .foregroundColor(Color.white)
-                                        .cornerRadius(30)
-                                        .frame(width: 370, height: 120)
-                                    HStack{
-                                        Image("recycle")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .cornerRadius(30)
-                                            .frame(width: 120)
-                                        VStack{
-                                            Text("Environmental")
-                                            Text("Impacts")
-                                        }
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .foregroundColor(.black)
-                                        .font(.custom("Helvetica Neue Thin", size: 30))
-                                        .padding(.horizontal, 38)
-                                    }
-                                }
-                            }
-                            Text("Boost Your Impact")
-                                .font(.custom("Helvetica Neue Thin", size: 35))
-                                .bold()
-                                .foregroundColor(Color.black)
-                            Text("Check out what others are doing!")
-                                .font(.custom("HelveticaNeue-Thin", size: 20))
-                            NavigationLink {
-                                RecycleView()//CHANGE THIS TO A NEW VIEW
-                            } label: {
-                                ZStack{
-                                    Rectangle()
-                                        .foregroundColor(Color.white)
-                                        .cornerRadius(30)
-                                        .frame(width: 370, height: 120)
-                                    HStack{
-                                        Image("recycle")
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .cornerRadius(30)
-                                            .frame(width: 120)
-                                        VStack{
-                                            Text("Environmental")
-                                            Text("Impacts")
-                                        }
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .foregroundColor(.black)
-                                        .font(.custom("Helvetica Neue Thin", size: 30))
-                                        .padding(.horizontal, 38)
-                                    }
-                                }
-                            }
+//                            NavigationLink {
+//                                RecycleView()//CHANGE THIS TO A NEW VIEW
+//                            } label: {
+//                                ZStack{
+//                                    Rectangle()
+//                                        .foregroundColor(Color.white)
+//                                        .cornerRadius(30)
+//                                        .frame(width: 370, height: 120)
+//                                    HStack{
+//                                        Image("recycle")
+//                                            .resizable()
+//                                            .aspectRatio(contentMode: .fit)
+//                                            .cornerRadius(30)
+//                                            .frame(width: 120)
+//                                        VStack{
+//                                            Text("Environmental")
+//                                            Text("Impacts")
+//                                        }
+//                                        .fixedSize(horizontal: false, vertical: true)
+//                                        .foregroundColor(.black)
+//                                        .font(.custom("Helvetica Neue Thin", size: 30))
+//                                        .padding(.horizontal, 38)
+//                                    }
+//                                }
+//                            }
+//                            Text("Boost Your Impact")
+//                                .font(.custom("Helvetica Neue Thin", size: 35))
+//                                .bold()
+//                                .foregroundColor(Color.black)
+//                            Text("Check out what others are doing!")
+//                                .font(.custom("HelveticaNeue-Thin", size: 20))
+//                            NavigationLink {
+//                                RecycleView()//CHANGE THIS TO A NEW VIEW
+//                            } label: {
+//                                ZStack{
+//                                    Rectangle()
+//                                        .foregroundColor(Color.white)
+//                                        .cornerRadius(30)
+//                                        .frame(width: 370, height: 120)
+//                                    HStack{
+//                                        Image("recycle")
+//                                            .resizable()
+//                                            .aspectRatio(contentMode: .fit)
+//                                            .cornerRadius(30)
+//                                            .frame(width: 120)
+//                                        VStack{
+//                                            Text("Environmental")
+//                                            Text("Impacts")
+//                                        }
+//                                        .fixedSize(horizontal: false, vertical: true)
+//                                        .foregroundColor(.black)
+//                                        .font(.custom("Helvetica Neue Thin", size: 30))
+//                                        .padding(.horizontal, 38)
+//                                    }
+//                                }
+//                            }
                         }
                     }
                 }

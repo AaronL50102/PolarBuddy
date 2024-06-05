@@ -115,38 +115,42 @@ struct StoreView: View {
                 .navigationTitle("Products")
 
             }
+            VStack{
+                ZStack{
 
-            ZStack{
+                    Rectangle()
 
-                Rectangle()
+                        .frame(width: 120, height: 78)
 
-                    .frame(width: 120, height: 78)
+                        .foregroundColor(.lightBlue)
 
-                    .foregroundColor(.lightBlue)
+                        .cornerRadius(27)
 
-                    .cornerRadius(27)
+                        .offset(x: 100, y: -290)
 
-                    .offset(x: 100, y: -290)
+                        .padding()
 
-                    .padding()
+                    Image("starCart")
 
-                Image("starCart")
+                        .resizable()
 
-                    .resizable()
+                        .aspectRatio(contentMode: .fit)
 
-                    .aspectRatio(contentMode: .fit)
+                        .scaleEffect(0.17)
 
-                    .scaleEffect(0.17)
+                        .offset(x: 115, y: -290)
 
-                    .offset(x: 115, y: -290)
+                    Text("\(user.stars)")
 
-                Text("\(user.stars)")
+                        .font(.custom("Helvetica Neue Thin", size: 30))
 
-                    .font(.custom("Helvetica Neue Thin", size: 30))
+                        .offset(x: 70, y: -290)
 
-                    .offset(x: 70, y: -290)
-
+                }
+                Spacer()
             }
+            .padding(.top, 115)
+            .padding(.trailing, -20)
 
         }
 
