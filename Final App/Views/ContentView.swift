@@ -21,22 +21,28 @@ struct ContentView: View {
             Spacer()
             if viewState == .home {
                 HomeView()
+                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
             }
             else if viewState == .info {
                 ChallengeView()
+                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
             }
             else if viewState == .input{
                 InputView()
+                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
             }
             else{
                 ReportView()
+                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
             }
             Spacer()
             ZStack{
                 ExtractedView()
                 HStack {
                     Button {
-                        viewState = .info
+                        withAnimation{
+                            viewState = .info
+                        }
                     } label: {
                         VStack{
                             Image(systemName: "book")
@@ -48,7 +54,9 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button {
-                        viewState = .home
+                        withAnimation{
+                            viewState = .home
+                        }
                     } label: {
                         VStack{
                             Image(systemName: "house")
@@ -60,7 +68,9 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button {
-                        viewState = .input
+                        withAnimation{
+                            viewState = .input
+                        }
                     } label: {
                         VStack{
                             Image(systemName: "camera")
@@ -72,7 +82,10 @@ struct ContentView: View {
                     }
                     Spacer()
                     Button {
-                        viewState = .report
+                        withAnimation{
+                            viewState = .report
+
+                        }
                     } label: {
                         VStack{
                             Image(systemName: "pencil")

@@ -11,6 +11,8 @@ import FirebaseAuth
 
 struct SignUpView: View {
     @EnvironmentObject var user: User
+    @State var logoAppear: Double = 0.01
+    @State var viewOpacity: Double = 0.0
     
     var body: some View {
         ZStack{
@@ -25,6 +27,12 @@ struct SignUpView: View {
                 Image("realLogo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .scaleEffect(logoAppear)
+                    .onAppear {
+                        withAnimation(.spring(dampingFraction: 0.3)) {
+                            self.logoAppear = 1
+                        }
+                    }
                 ZStack{
                     TextField("email address", text: $user.emailAddress)
                         .padding([.leading, .trailing], 110)
@@ -36,6 +44,12 @@ struct SignUpView: View {
                         .foregroundColor(Color.gray)
                         .opacity(0.5)
                         .offset(y: 20)
+                }
+                .opacity(viewOpacity)
+                .onAppear{
+                    withAnimation (.easeIn(duration: 0.5).delay(2)){
+                        self.viewOpacity = 1
+                    }
                 }
                 ZStack{
                     SecureField("password", text: $user.password)
@@ -49,9 +63,13 @@ struct SignUpView: View {
                         .opacity(0.5)
                         .offset(y: 20)
                 }
-                
+                .opacity(viewOpacity)
+                .onAppear{
+                    withAnimation (.easeIn(duration: 0.5).delay(2)){
+                        self.viewOpacity = 1
+                    }
+                }
                 Spacer()
-                
                 Button {
                     Auth.auth().createUser(withEmail: user.emailAddress, password: user.password){user, error in
                         if let u = user{
@@ -72,6 +90,12 @@ struct SignUpView: View {
                         .background(Color.blue)
                         .cornerRadius(20)
                         .padding()
+                        .opacity(viewOpacity)
+                        .onAppear{
+                            withAnimation (.easeIn(duration: 0.5).delay(2)){
+                                self.viewOpacity = 1
+                            }
+                        }
                 }
                 
                 Button {
@@ -94,6 +118,12 @@ struct SignUpView: View {
                         .background(Color.blue)
                         .cornerRadius(20)
                         .padding(.bottom, 50)
+                        .opacity(viewOpacity)
+                        .onAppear{
+                            withAnimation (.easeIn(duration: 0.5).delay(2)){
+                                self.viewOpacity = 1
+                            }
+                        }
                 }
                 Spacer()
              }
@@ -113,4 +143,3 @@ struct SignUpView_Previews: PreviewProvider {
 //                        .padding(.vertical, 10)
 //                        .background(Color.blue)
 //                        .cornerRadius(20)
-
