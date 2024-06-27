@@ -72,7 +72,7 @@ struct ChallengeView: View {
                     }
                 }
 
-                .padding(.top, 30)
+                .padding(.top, 60)
 
                 Spacer()
 

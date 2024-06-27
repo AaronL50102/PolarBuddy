@@ -22,6 +22,8 @@ struct ContentView: View {
             if viewState == .home {
                 HomeView()
                     .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+                    .ignoresSafeArea()
+                    .edgesIgnoringSafeArea(.all)
             }
             else if viewState == .info {
                 ChallengeView()
@@ -30,10 +32,14 @@ struct ContentView: View {
             else if viewState == .input{
                 InputView()
                     .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+                    .ignoresSafeArea()
+                    .edgesIgnoringSafeArea(.all)
             }
             else{
                 ReportView()
                     .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+                    .ignoresSafeArea()
+                    
             }
             Spacer()
             ZStack{
@@ -101,7 +107,8 @@ struct ContentView: View {
                 }.padding([.leading, .trailing], 40)
             }
         }
-        .padding()
+//        .padding()
+//        .frame(width: 440)
     }
 }
 

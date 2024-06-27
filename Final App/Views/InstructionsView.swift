@@ -22,13 +22,13 @@ struct InstructionsView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
+                
                 .opacity(0.4)
             ScrollView (.vertical, showsIndicators: false){
                 Text("FAQs")
                     .font(.custom("Helvetica Neue Thin", size: 40))
                     .bold()
                     .foregroundColor(Color.black)
-                
                 ZStack{
                     Rectangle()
                         .frame(width: 325,height: 415)
@@ -143,9 +143,11 @@ struct InstructionsView: View {
                         scale4 = 1
                     }
                 }
-
+                .frame(width: 500)
             }
         }
+        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

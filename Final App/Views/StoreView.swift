@@ -43,11 +43,9 @@ struct StoreView: View {
         ZStack{
 
             Rectangle()
-
                 .foregroundColor(.white)
-
                 .ignoresSafeArea()
-
+                .edgesIgnoringSafeArea(.all)
             NavigationView {
 
                 List(store.products) { product in
@@ -151,7 +149,6 @@ struct StoreView: View {
             }
             .padding(.top, 115)
             .padding(.trailing, -20)
-
         }
 
     }

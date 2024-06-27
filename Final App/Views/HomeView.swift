@@ -95,13 +95,12 @@ struct HomeView: View {
                         
 
                         NavigationLink {
-
                             InstructionsView()
-
+                                .ignoresSafeArea()
+                                .edgesIgnoringSafeArea(.all)
+                                .frame(width: 430)
                         } label: {
-
                             HStack{
-
                                 Image(systemName: "questionmark.circle.fill")
 
                                     .resizable()
@@ -442,7 +441,6 @@ struct HomeView: View {
                 .padding(.top, -25)
 
             }
-
         }
 
     }

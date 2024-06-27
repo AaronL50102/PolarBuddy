@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct RecycleView: View {
+    
+    @State var scale1: Double = 0
+    @State var scale2: Double = 0
+    @State var scale3: Double = 0
 
     var body: some View {
         
@@ -38,6 +42,12 @@ struct RecycleView: View {
                         .foregroundColor(Color.white)
                 }
             }
+            .scaleEffect(scale1)
+            .onAppear{
+                withAnimation (.spring(dampingFraction: 1).delay(0.0)){
+                    scale1 = 1
+                }
+            }
             Spacer()
             ZStack{
                 Rectangle()
@@ -62,6 +72,12 @@ struct RecycleView: View {
                         .foregroundColor(Color.white)
                 }
             }
+            .scaleEffect(scale2)
+            .onAppear{
+                withAnimation (.spring(dampingFraction: 1).delay(0.15)){
+                    scale2 = 1
+                }
+            }
             Spacer()
             ZStack{
                 Rectangle()
@@ -81,6 +97,12 @@ struct RecycleView: View {
                         .font(.custom("Helvetica Neue Thin", size: 20))
                         .frame(width: 300,height: 100)
                         .foregroundColor(Color.white)
+                }
+            }
+            .scaleEffect(scale3)
+            .onAppear{
+                withAnimation (.spring(dampingFraction: 1).delay(0.30)){
+                    scale3 = 1
                 }
             }
         }

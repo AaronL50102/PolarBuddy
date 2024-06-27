@@ -28,6 +28,7 @@ struct ReportView: View {
                 Image("blueBackground")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .ignoresSafeArea()
                     .edgesIgnoringSafeArea(.all)
                     .scaleEffect(1.5)
                     .opacity(0.2)
@@ -289,6 +290,9 @@ struct ReportView: View {
                 .frame(width: 500)
             }
         }
+        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.all)
+        .frame(width: 430)
     }
 }
 
