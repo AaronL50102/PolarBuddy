@@ -41,13 +41,22 @@ struct HomeView: View {
 
 
     var body: some View {
-
-
-
-        ZStack{
-
             NavigationView{
+                
+                ZStack{
+                    Image("blueBackground")
 
+                        .resizable()
+
+                        .aspectRatio(contentMode: .fit)
+
+                        .ignoresSafeArea()
+
+                        .edgesIgnoringSafeArea(.all)
+
+                        .scaleEffect(1.3)
+
+                        .opacity(0.3)
                 VStack{
 
                     HStack{

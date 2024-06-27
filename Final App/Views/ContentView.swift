@@ -17,99 +17,64 @@ struct ContentView: View {
     @State var test: Int = 1 //Remove later
     
     var body: some View {
-        VStack {
-            Spacer()
-            if viewState == .home {
-                HomeView()
-                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
-                    .ignoresSafeArea()
-                    .edgesIgnoringSafeArea(.all)
-            }
-            else if viewState == .info {
-                ChallengeView()
-                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
-            }
-            else if viewState == .input{
-                InputView()
-                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
-                    .ignoresSafeArea()
-                    .edgesIgnoringSafeArea(.all)
-            }
-            else{
-                ReportView()
-                    .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
-                    .ignoresSafeArea()
-                    
-            }
-            Spacer()
-            ZStack{
-                ExtractedView()
-                HStack {
-                    Button {
-                        withAnimation{
-                            viewState = .info
+        TabView {
+            HomeView()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            ChallengeView()
+                .tabItem {
+                    Label("Tasks", systemImage: "book")
+                }
+            InputView()
+                .tabItem {
+                          Spacer(minLength: 20)
+                          Image(uiImage: resizeImage(UIImage(systemName: "paintbrush.fill")!, targetSize: CGSize(width: 20, height: 27))!)
+                          Text("Appearance")
                         }
-                    } label: {
-                        VStack{
-                            Image(systemName: "book")
-                                .scaleEffect(2)
-                            Text("Task")
-                                .padding(.vertical, 2)
-                        }
-                        .foregroundColor(.white)
-                        .scaleEffect((viewState == .info ? 1.15 : 1))
-                    }
-                    Spacer()
-                    Button {
-                        withAnimation{
-                            viewState = .home
-                        }
-                    } label: {
-                        VStack{
-                            Image(systemName: "house")
-                                .scaleEffect(2)
-                            Text("Home")
-                                .padding(.vertical, 2)
-                        }
-                        .foregroundColor(.white)
-                        .scaleEffect((viewState == .home ? 1.15 : 1))
-                    }
-                    Spacer()
-                    Button {
-                        withAnimation{
-                            viewState = .input
-                        }
-                    } label: {
-                        VStack{
-                            Image(systemName: "camera")
-                                .scaleEffect(2)
-                            Text("Input")
-                                .padding(.vertical, 2)
-                        }
-                        .foregroundColor(.white)
-                        .scaleEffect((viewState == .input ? 1.15 : 1))
-                    }
-                    Spacer()
-                    Button {
-                        withAnimation{
-                            viewState = .report
-                        }
-                    } label: {
-                        VStack{
-                            Image(systemName: "pencil")
-                                .scaleEffect(2.3)
-                            Text("Info")
-                                .padding(.vertical, 2)
-                        }
-                        .foregroundColor(.white)
-                        .scaleEffect((viewState == .report ? 1.15 : 1))
-                    }
-                }.padding([.leading, .trailing], 40)
-            }
+            ReportView()
+                .tabItem {
+                    Label("Info", systemImage: "pencil")
+                }
+            
+            
         }
-//        .padding()
-//        .frame(width: 440)
+        
+        .onAppear(perform: {
+            UITabBar.appearance().backgroundColor = .white
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+            } else {
+                // Fallback on earlier versions
+            }
+            
+        })
+       
     }
+    func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage? {
+        let size = image.size
+        
+        // Calculate the scaling factor to fit the image to the target dimensions while maintaining the aspect ratio
+        let widthRatio = targetSize.width / size.width
+        let heightRatio = targetSize.height / size.height
+        let ratio = min(widthRatio, heightRatio)
+        
+        let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+        let yOffset = (targetSize.height - newSize.height) // Leave the top blank and align the bottom
+        
+        //Create a new image context
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        let newImage = renderer.image { context in
+          // Fill the background with a transparent color
+          context.cgContext.setFillColor(UIColor.clear.cgColor)
+          context.cgContext.fill(CGRect(origin: .zero, size: targetSize))
+          
+          // draw new image
+          image.draw(in: CGRect(x: 0, y: yOffset, width: newSize.width, height: newSize.height))
+        }
+        
+        return newImage
+      }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -121,41 +86,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//somehow a ZStack a single rectangle affects the HStack of buttons. I lost my mind for 30 minutes over this but hey I found a solution (kinda)
-struct ExtractedView: View {
-    var body: some View {
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: -90, y: -27)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: 90, y: -27)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: -90, y: -6)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: 90, y: -6)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: -90, y: 34)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: 90, y: 34)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: -90, y: 74)
-        Rectangle()
-            .frame(width: 250, height: 40)
-            .foregroundColor(Color.lightMediumBlue)
-            .offset(x: 90, y: 74)
-    }
-}
-//    .foregroundColor(Color(hue: 1.0, saturation: 0.001, brightness: 0.922))
