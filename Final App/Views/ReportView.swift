@@ -138,44 +138,49 @@ struct ReportView: View {
                                  Rectangle()
                                      .foregroundColor(Color.mediumBlue)
                                      .cornerRadius(30)
-                                     .frame(width: 370, height: 120)
+                                     .frame(width: 325, height: 120)
                                  Image("plasticBankLogo")
                                      .resizable()
                                      .aspectRatio(contentMode: .fit)
-                                     .frame(width: 320)
+                                     .frame(width: 270)
                              }
                              .frame(width: 370, height: 120)
                         }
                         HStack{
+                            Spacer()
                             Link(destination: URL(string: "https://www.terracycle.com/en-US/")!) {
                                  ZStack{
                                      Rectangle()
                                          .foregroundColor(Color.mediumBlue)
                                          .cornerRadius(30)
-                                         .frame(width: 170, height: 120)
+                                         .frame(width: 145, height: 120)
                                      Image("terraCycleLogo")
                                          .resizable()
                                          .aspectRatio(contentMode: .fit)
                                          .frame(width: 300)
                                  }
-                                 .frame(width: 150, height: 120)
+                                 .frame(width: 125, height: 120)
                             }
+                            .padding(.leading)
                             Spacer()
                             Link(destination: URL(string: "https://nrcrecycles.org/")!) {
                                  ZStack{
                                      Rectangle()
                                          .foregroundColor(Color.mediumBlue)
                                          .cornerRadius(30)
-                                         .frame(width: 170, height: 120)
+                                         .frame(width: 145, height: 120)
                                      Image("nrcLogo")
                                          .resizable()
                                          .aspectRatio(contentMode: .fit)
+                                         .padding()
                                          .frame(width: 130)
                                  }
-                                 .frame(width: 150, height: 120)
+                                 .frame(width: 125, height: 120)
                             }
+                            .padding(.trailing)
+                            Spacer()
                         }
-                        .padding([.leading, .trailing], 70)
+//                        .padding([.leading, .trailing], 70)
                         
                         
                         Text("More Info")
