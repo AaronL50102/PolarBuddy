@@ -24,15 +24,7 @@ struct SignUpView: View {
                 .opacity(0.2)
             VStack{
                 Spacer()
-                Image("realLogo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .scaleEffect(logoAppear)
-                    .onAppear {
-                        withAnimation(.spring(dampingFraction: 0.3)) {
-                            self.logoAppear = 1
-                        }
-                    }
+                
                 ZStack{
                     TextField("email address", text: $user.emailAddress)
                         .padding([.leading, .trailing], 110)
@@ -47,7 +39,7 @@ struct SignUpView: View {
                 }
                 .opacity(viewOpacity)
                 .onAppear{
-                    withAnimation (.easeIn(duration: 0.5).delay(2)){
+                    withAnimation (.easeIn(duration: 0.2)){
                         self.viewOpacity = 1
                     }
                 }
@@ -65,10 +57,11 @@ struct SignUpView: View {
                 }
                 .opacity(viewOpacity)
                 .onAppear{
-                    withAnimation (.easeIn(duration: 0.5).delay(2)){
+                    withAnimation (.easeIn(duration: 0.5)){
                         self.viewOpacity = 1
                     }
                 }
+                Spacer()
                 Spacer()
                 Button {
                     Auth.auth().createUser(withEmail: user.emailAddress, password: user.password){user, error in
@@ -85,46 +78,20 @@ struct SignUpView: View {
                 } label: {
                     Text("Sign Up")
                         .foregroundColor(.white)
-                        .font(Constants.mediumFont)
+                        .font(.system(size: 30))
                         .frame(width: 300,height: 60)
                         .background(Color.blue)
                         .cornerRadius(20)
                         .padding()
                         .opacity(viewOpacity)
                         .onAppear{
-                            withAnimation (.easeIn(duration: 0.5).delay(2)){
+                            withAnimation (.easeIn(duration: 0.5)){
                                 self.viewOpacity = 1
                             }
                         }
                 }
                 
-                Button {
-                    Auth.auth().signIn(withEmail: user.emailAddress, password: user.password){user, error in
-                        if let u = user{
-                            self.user.subscribe = true
-                            self.user.loggedIn = true
-//                            self.user.$uid = user.uid
-                            print("successfully logged in!!")
-                            self.user.getUserData();
-                        } else if let e = error {
-                            print(e.localizedDescription)
-                        }
-                    }
-                } label: {
-                    Text("Log In")
-                        .foregroundColor(.white)
-                        .font(Constants.mediumFont)
-                        .frame(width: 300,height: 60)
-                        .background(Color.blue)
-                        .cornerRadius(20)
-                        .padding(.bottom, 50)
-                        .opacity(viewOpacity)
-                        .onAppear{
-                            withAnimation (.easeIn(duration: 0.5).delay(2)){
-                                self.viewOpacity = 1
-                            }
-                        }
-                }
+                
                 Spacer()
              }
         }

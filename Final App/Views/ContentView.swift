@@ -15,6 +15,8 @@ struct ContentView: View {
     
     @State var viewState: ViewState = .home
     @State var test: Int = 1 //Remove later
+    @State var logoAppear: Double = 0.01
+    @State var viewOpacity: Double = 0.0
     
     var body: some View {
         TabView {
@@ -23,6 +25,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
+            
             ChallengeView()
                 .tabItem {
                     Label("Tasks", systemImage: "book")
@@ -46,7 +49,9 @@ struct ContentView: View {
             } else {
                 // Fallback on earlier versions
             }
-            
+            withAnimation (.easeIn(duration: 0.5).delay(0)){
+                self.viewOpacity = 1
+            }
         })
        
     }
