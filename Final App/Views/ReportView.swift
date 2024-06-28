@@ -127,11 +127,63 @@ struct ReportView: View {
                             
                         }
                         
+                        Text("Learn what others are doing")
+                            .font(.system(size: 40))
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color.black)
+                            .padding(.leading, 20)
+                        Link(destination: URL(string: "https://plasticbank.com/")!) {
+                             ZStack{
+                                 Rectangle()
+                                     .foregroundColor(Color.mediumBlue)
+                                     .cornerRadius(30)
+                                     .frame(width: 370, height: 120)
+                                 Image("plasticBankLogo")
+                                     .resizable()
+                                     .aspectRatio(contentMode: .fit)
+                                     .frame(width: 320)
+                             }
+                             .frame(width: 370, height: 120)
+                        }
+                        HStack{
+                            Link(destination: URL(string: "https://www.terracycle.com/en-US/")!) {
+                                 ZStack{
+                                     Rectangle()
+                                         .foregroundColor(Color.mediumBlue)
+                                         .cornerRadius(30)
+                                         .frame(width: 170, height: 120)
+                                     Image("terraCycleLogo")
+                                         .resizable()
+                                         .aspectRatio(contentMode: .fit)
+                                         .frame(width: 300)
+                                 }
+                                 .frame(width: 150, height: 120)
+                            }
+                            Spacer()
+                            Link(destination: URL(string: "https://nrcrecycles.org/")!) {
+                                 ZStack{
+                                     Rectangle()
+                                         .foregroundColor(Color.mediumBlue)
+                                         .cornerRadius(30)
+                                         .frame(width: 170, height: 120)
+                                     Image("nrcLogo")
+                                         .resizable()
+                                         .aspectRatio(contentMode: .fit)
+                                         .frame(width: 130)
+                                 }
+                                 .frame(width: 150, height: 120)
+                            }
+                        }
+                        .padding([.leading, .trailing], 70)
+                        
                         
                         Text("More Info")
-                            .font(.custom("Helvetica Neue Thin", size: 45))
+                            .font(.system(size: 40))
                             .bold()
+                            .multilineTextAlignment(.leading)
                             .foregroundColor(Color.black)
+
                         VStack{
                             NavigationLink {
                                 FactsView()
@@ -178,7 +230,6 @@ struct ReportView: View {
                                     }
                                 }
                                 .frame(width: 370, height: 120)
-                                
                             }
                         }
                     }
