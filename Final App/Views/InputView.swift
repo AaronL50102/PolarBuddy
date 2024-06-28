@@ -169,12 +169,23 @@ struct InputView: View {
         user.updateStars()
         user.challengeUpdate()
     }
-    
     else if type == "carton" {
         user.addCardboard()
         user.updateStars()
         user.challengeUpdate()
     }
+    else if type == "bag" {
+        user.addBag()
+        user.updateStars()
+        user.challengeUpdate()
+    }
+    else if type == "can" {
+        user.addCan()
+        user.updateStars()
+        user.challengeUpdate()
+    }
+    
+    
     print("Amount of bottle recycled: \(user.getBottle())")
 }
 
