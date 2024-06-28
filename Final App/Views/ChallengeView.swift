@@ -50,7 +50,7 @@ struct ChallengeView: View {
 
                     Text("Challenges")
 
-                        .font(.custom("Helvetica Neue Thin", size: 40))
+                        .font(.system(size: 40))
 
                         .bold()
 
@@ -95,7 +95,7 @@ struct ChallengeView: View {
                             HStack{
                                 VStack{
                                     Text("Recycle Water Bottles")
-                                        .font(.custom("Helvetica Neue Thin", size: 23))
+                                        .font(.system(size: 23))
                                         .bold()
                                         .padding(.horizontal, 10)
                                         .padding(.vertical, 15)
@@ -116,7 +116,7 @@ struct ChallengeView: View {
                                                 .padding(.leading, -60)
                                         }
                                         Text("\(user.waterBottle % 10)/10")
-                                            .font(.custom("Helvetica Neue Thin", size: 20))
+                                            .font(.system(size: 20))
                                             .foregroundColor(Color.white)
                                     }
                                 }
@@ -148,13 +148,13 @@ struct ChallengeView: View {
                                 VStack{
                                     VStack{
                                         Text("Recycle")
-                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .font(.system(size: 23))
                                             .bold()
                                             .padding(.horizontal, -10)
                                             .padding(.vertical, 10)
                                             .foregroundColor(Color.white)
                                         Text("Aluminum Cans")
-                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .font(.system(size: 23))
                                             .bold()
                                             .padding(.horizontal, -10)
                                             .padding(.vertical, -15)
@@ -178,7 +178,7 @@ struct ChallengeView: View {
                                                 .padding(.leading, 40)
                                         }
                                         Text("\(user.aluminumCan % 10)/10")
-                                            .font(.custom("Helvetica Neue Thin", size: 20))
+                                            .font(.system(size: 20))
                                             .foregroundColor(Color.white)
                                     }
                                 }
@@ -210,7 +210,7 @@ struct ChallengeView: View {
                                 VStack{
                                     VStack{
                                         Text("Recycle Cardboard")
-                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .font(.system(size: 23))
                                             .bold()
                                             .foregroundColor(Color.white)
                                     }
@@ -232,7 +232,7 @@ struct ChallengeView: View {
                                                 .padding(.leading, 10)
                                         }
                                         Text("\(user.cardboard % 10)/10")
-                                            .font(.custom("Helvetica Neue Thin", size: 20))
+                                            .font(.system(size: 20))
                                             .foregroundColor(Color.white)
                                     }
                                 }
@@ -264,13 +264,13 @@ struct ChallengeView: View {
                                 VStack{
                                     VStack{
                                         Text("Recycle")
-                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .font(.system(size: 23))
                                             .bold()
                                             .padding(.horizontal, -10)
                                             .padding(.vertical, 10)
                                             .foregroundColor(Color.white)
                                         Text("Plastic Bags")
-                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .font(.system(size: 23))
                                             .bold()
                                             .padding(.horizontal, -10)
                                             .padding(.vertical, -15)
@@ -294,7 +294,7 @@ struct ChallengeView: View {
                                                 .padding(.leading, 35)
                                         }
                                         Text("\(user.groceryBag % 10)/10")
-                                            .font(.custom("Helvetica Neue Thin", size: 20))
+                                            .font(.system(size: 20))
                                             .foregroundColor(Color.white)
                                     }
                                 }
@@ -328,7 +328,7 @@ struct ChallengeView: View {
                                 VStack{
                                     VStack{
                                         Text("Recycle Any Item")
-                                            .font(.custom("Helvetica Neue Thin", size: 23))
+                                            .font(.system(size: 23))
                                             .bold()
                                     }
                                     .padding(.leading, 10)
@@ -349,7 +349,7 @@ struct ChallengeView: View {
                                                 .padding(.leading, 10)
                                         }
                                         Text("\(user.totalRecycled() % 50)/50")
-                                            .font(.custom("Helvetica Neue Thin", size: 20))
+                                            .font(.system(size: 20))
                                     }
                                 }
                                 Image("recycle 1")
