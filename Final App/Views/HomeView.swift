@@ -111,7 +111,7 @@ struct HomeView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .scaleEffect(0.42)
-                                    .offset(x: 5, y: -137)
+                                    .offset(x: 7, y: -137)
                               
                             }
                             
@@ -170,22 +170,23 @@ struct HomeView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 125.0, height: 125.0)
-                            ZStack() {
+                            ZStack{
                                 Rectangle()
                                     .frame(width: 40, height: 325)
                                     .foregroundColor(.black)
                                     .cornerRadius(50)
-                                Rectangle()
-                                    .frame(width: 35, height: 320)
-                                    .foregroundColor(.lightBlue)
-                                    .cornerRadius(50)
+                                ZStack(alignment: .bottom) {
+                                    Rectangle()
+                                        .frame(width: 35, height: 320)
+                                        .foregroundColor(.lightBlue)
+                                        .cornerRadius(50)
                                     
-                                Rectangle()
-                                    .frame(width: 35, height: CGFloat(320 * (CGFloat(user.points) / CGFloat(maxPoints))))
-                                    .foregroundColor(.lightMediumBlue)
-                                    .cornerRadius(50)
+                                    Rectangle()
+                                        .frame(width: 35, height: CGFloat(320 * (CGFloat(user.points) / CGFloat(maxPoints))))
+                                        .foregroundColor(.lightMediumBlue)
+                                        .cornerRadius(50)
                                     
-                                
+                                }
                             }
                         }
                        Spacer()

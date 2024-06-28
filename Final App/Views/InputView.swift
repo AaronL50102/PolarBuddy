@@ -40,15 +40,16 @@ struct InputView: View {
                         Image(uiImage: selectedImage)
                             .resizable()
                             .scaledToFit()
-                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? "plastic bottle" : "This is not recyclable")")
+                        Text("\(identifyImage(image: selectedImage, user2: user) == "water bottle" || identifyImage(image: selectedImage, user2: user) == "water jug" ? "plastic bottle" : identifyImage(image: selectedImage, user2: user) == "carton" ? "cardboard" : "This is not recyclable")")
                             .font(.system(size: 40))
                             .bold()
                             .foregroundColor(Color.lightMediumBlue)
+                        //Text("\(identifyImage(image: selectedImage, user2: user))")
                         HStack{
                             Button {
                                 addPoints(type: identifyImage(image: selectedImage, user2: user), user2: user)
-                                showImage.toggle() //false
-                                showPoints.toggle() //true
+                                showImage = false
+                                showPoints = true
                             } label: {
                                 Text("Correct!")
                                     .font(.system(size: 30))
@@ -57,8 +58,9 @@ struct InputView: View {
                             }
                             Spacer()
                             Button {
-                                showImage.toggle()
-                                showButton.toggle()
+                                showImage = false
+                                showButton = true
+                                self.selectedImage = nil
                             } label: {
                                 Text("Retake")
                                     .font(.system(size: 30))
@@ -71,7 +73,7 @@ struct InputView: View {
                     }
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now()){
-                            showButton.toggle()
+                            showButton = false
                         }
                     }
                 }
@@ -106,8 +108,8 @@ struct InputView: View {
                     }
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                            showPoints.toggle()//false
-                            showButton.toggle()//true
+                            showPoints = false
+                            showButton = true
                         }
                     }
                 }
@@ -123,7 +125,8 @@ struct InputView: View {
                     Button{
                         self.showCamera.toggle()
                         photo = self.selectedImage ?? UIImage()
-                        showImage.toggle()//true
+                        showImage = true
+//                        showButton.toggle()//false
                     } label: {
                         Image("camera")
                             .resizable()

@@ -14,10 +14,42 @@
             filePath = "Final App/Views/InputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "InputView_Previews"
             landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "EB6FCBF0-764A-4E65-ABB8-A9B937647649 - 3ba01c4f25500790"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Polar_Buddy.InputView_Previews.previews.getter : some"
+                  moduleName = "Polar Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elidresnin/Desktop/Projects/PolarBuddy/Final%20App/Views/InputView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "284"
+                  endingLineNumber = "284"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "EB6FCBF0-764A-4E65-ABB8-A9B937647649 - 330057d563412488"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Polar_Buddy.InputView_Previews.init() -&gt; Polar_Buddy.InputView_Previews"
+                  moduleName = "Polar Buddy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/elidresnin/Desktop/Projects/PolarBuddy/Final%20App/Views/InputView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "283"
+                  endingLineNumber = "283"
+                  offsetFromSymbolStart = "0">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
