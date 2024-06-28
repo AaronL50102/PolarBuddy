@@ -110,8 +110,8 @@ struct HomeView: View {
                                 Image("hat")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .scaleEffect(0.42)
-                                    .offset(x: 7, y: -137)
+                                    .scaleEffect(0.4)
+                                    .offset(x: 5, y: -210)
                               
                             }
                             
@@ -119,7 +119,7 @@ struct HomeView: View {
                                 Image("scarf")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .scaleEffect(0.65)
+                                    .scaleEffect(0.45)
                                     .offset(x: 5, y: -50)
                             }
                             
@@ -143,8 +143,8 @@ struct HomeView: View {
                                 Image("skirt")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .scaleEffect(1)
-                                    .offset(x: 0, y: 60)
+                                    .scaleEffect(0.75)
+                                    .offset(x: 1, y: 100)
                                
                             }
                             if user.hasWatch {

@@ -14,13 +14,13 @@
             filePath = "Final App/Views/InputView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "InputView_Previews"
             landmarkType = "14">
             <Locations>
                <Location
-                  uuid = "EB6FCBF0-764A-4E65-ABB8-A9B937647649 - 3ba01c4f25500790"
+                  uuid = "EB6FCBF0-764A-4E65-ABB8-A9B937647649 - 3ba01c4f25500673"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,12 +30,12 @@
                   urlString = "file:///Users/elidresnin/Desktop/Projects/PolarBuddy/Final%20App/Views/InputView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "284"
-                  endingLineNumber = "284"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
                   offsetFromSymbolStart = "40">
                </Location>
                <Location
-                  uuid = "EB6FCBF0-764A-4E65-ABB8-A9B937647649 - 330057d563412488"
+                  uuid = "EB6FCBF0-764A-4E65-ABB8-A9B937647649 - 330057d5634124a9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -45,8 +45,8 @@
                   urlString = "file:///Users/elidresnin/Desktop/Projects/PolarBuddy/Final%20App/Views/InputView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "283"
-                  endingLineNumber = "283"
+                  startingLineNumber = "284"
+                  endingLineNumber = "284"
                   offsetFromSymbolStart = "0">
                </Location>
             </Locations>

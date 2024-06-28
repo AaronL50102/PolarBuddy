@@ -110,6 +110,7 @@ struct InputView: View {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
                             showPoints = false
                             showButton = true
+                            self.selectedImage = nil
                         }
                     }
                 }
