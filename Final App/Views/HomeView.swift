@@ -111,7 +111,7 @@ struct HomeView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .scaleEffect(0.4)
-                                    .offset(x: 5, y: -210)
+                                    .offset(x: 5, y: -200)
                               
                             }
                             
@@ -119,7 +119,7 @@ struct HomeView: View {
                                 Image("scarf")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .scaleEffect(0.45)
+                                    .scaleEffect(0.5)
                                     .offset(x: 5, y: -50)
                             }
                             
@@ -128,7 +128,7 @@ struct HomeView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .scaleEffect(0.34)
-                                    .offset(x: 5, y: -110)
+                                    .offset(x: 5, y: -150)
                             }
                             
                             if user.hasBag {
@@ -143,7 +143,7 @@ struct HomeView: View {
                                 Image("skirt")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .scaleEffect(0.75)
+                                    .scaleEffect(0.9)
                                     .offset(x: 1, y: 100)
                                
                             }
@@ -189,6 +189,7 @@ struct HomeView: View {
                                 }
                             }
                         }
+                        Spacer()
                        Spacer()
                     }
                     
